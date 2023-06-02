@@ -5,9 +5,9 @@ import "fmt"
 type GunType string
 
 const (
-	GUN    GunType = "GUN"
-	AK47   GunType = "AK47"
-	MUSKET GunType = "MUSKET"
+	NormalGun GunType = "NormalGun"
+	AK47      GunType = "AK47"
+	MUSKET    GunType = "MUSKET"
 )
 
 type GunsFactory struct {
@@ -16,7 +16,7 @@ type GunsFactory struct {
 func (GunsFactory) ProvideGun(gunType GunType) (IGun, error) {
 
 	switch gunType {
-	case GUN:
+	case NormalGun:
 		return NewNormalGun(), nil
 	case AK47:
 		return NewAk47(), nil
