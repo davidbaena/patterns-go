@@ -13,5 +13,5 @@ func main() {
 		return
 	}
 
-	fmt.Print(gun.GetName())
+	fmt.Println(gun.GetName())
 }
