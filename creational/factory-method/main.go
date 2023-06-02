@@ -7,13 +7,13 @@ import (
 func main() {
 	factory := GunsFactory{}
 
-	normalGun, err := factory.ProvideGun(NormalGun)
+	normalGun, err := factory.ProvideGun(NormalGunType)
 	if err != nil {
 		fmt.Print(err)
 		return
 	}
 
-	musket, err := factory.ProvideGun(MUSKET)
+	musket, err := factory.ProvideGun(MusketType)
 	if err != nil {
 		fmt.Print(err)
 		return
