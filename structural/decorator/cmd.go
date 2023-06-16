@@ -5,9 +5,9 @@ func main() {
 	source.WriteData("data")
 
 	source = NewEncryptionDecorator(source)
-	source.WriteData("data_to_encrypt")
+	source.WriteData("data")
 
 	source = NewCompressionDecorator(source)
-	source.WriteData("data_to_compress")
+	source.WriteData("data")
 
 }
