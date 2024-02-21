@@ -43,3 +43,12 @@ func main() {
 	match.GoalScored("Team 2")
 	match.GoalScored("Team 1")
 }
+
+/* Output:
+Fan Alice received match result: Goal scored by Team 1!
+Fan Bob received match result: Goal scored by Team 1!
+Fan Alice received match result: Goal scored by Team 2!
+Fan Bob received match result: Goal scored by Team 2!
+Fan Alice received match result: Goal scored by Team 1!
+Fan Bob received match result: Goal scored by Team 1!
+*/
