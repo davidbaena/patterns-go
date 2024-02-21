@@ -5,6 +5,8 @@ import "fmt"
 type Observer interface {
 	Notify(string)
 }
+
+// Fan is the concrete observer
 type Fan struct {
 	Name string
 }
@@ -13,6 +15,7 @@ func (f Fan) Notify(event string) {
 	fmt.Printf("Fan %s received match result: %s\n", f.Name, event)
 }
 
+// FootballMatch is the subject
 type FootballMatch struct {
 	observers []Observer
 }
