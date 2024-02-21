@@ -27,11 +27,11 @@ All players have left the locker room.
 Here's an ASCII diagram representing the time each player has spent in the locker room. Each `-` represents one second.
 
 ```
-Player 5: |----| 
-Player 2: |-----| 
-Player 3: |—|
-Player 1: |-----| 
-Player 4: |—|
+Player 5: |--|
+Player 2: |---|
+Player 3: |--|
+Player 1:    |---|
+Player 4:    |--|
 ```
 
 ## Explanation
