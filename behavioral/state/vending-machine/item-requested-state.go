@@ -19,7 +19,7 @@ func (it *ItemRequestedState) InsertMoney(money int) error {
 		return fmt.Errorf("inserted money is less")
 	}
 	fmt.Printf("Money inserted: %d\n", money)
-	it.vendingMachine.currentState = it.vendingMachine.HasMoneyState
+	it.vendingMachine.SetState(it.vendingMachine.HasMoneyState)
 	return nil
 }
 

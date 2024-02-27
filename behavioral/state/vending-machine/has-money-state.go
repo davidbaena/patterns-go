@@ -23,9 +23,9 @@ func (h *HasMoneyState) DispenseItem() error {
 	fmt.Printf("Dispensing item\n")
 	h.vendingMachine.itemCount--
 	if h.vendingMachine.itemCount == 0 {
-		h.vendingMachine.currentState = h.vendingMachine.NoItemState
+		h.vendingMachine.SetState(h.vendingMachine.NoItemState)
 	} else {
-		h.vendingMachine.currentState = h.vendingMachine.HasItemState
+		h.vendingMachine.SetState(h.vendingMachine.HasItemState)
 	}
 	return nil
 }

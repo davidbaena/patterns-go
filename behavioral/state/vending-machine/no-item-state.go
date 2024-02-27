@@ -11,8 +11,9 @@ func (n *NoItemState) RequestItem() error {
 }
 
 func (n *NoItemState) AddItem(i int) error {
+	fmt.Printf("Adding %d items\n", i)
 	n.vendingMachine.IncrementItem(i)
-	n.vendingMachine.currentState = &HasItemState{}
+	n.vendingMachine.SetState(n.vendingMachine.HasItemState)
 	return nil
 }
 

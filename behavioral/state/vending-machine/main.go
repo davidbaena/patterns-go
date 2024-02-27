@@ -1,19 +1,48 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 func main() {
 	vendingMachine := NewVendingMachine(1, 10)
-	if err := vendingMachine.RequestItem(); err != nil {
-		fmt.Printf("err: %s\n", err)
+	err := vendingMachine.RequestItem()
+	if err != nil {
+		log.Fatalf(err.Error())
 	}
-	if err := vendingMachine.AddItem(2); err != nil {
-		fmt.Printf("err: %s\n", err)
+
+	err = vendingMachine.InsertMoney(10)
+	if err != nil {
+		log.Fatalf(err.Error())
 	}
-	if err := vendingMachine.InsertMoney(10); err != nil {
-		fmt.Printf("err: %s\n", err)
+
+	err = vendingMachine.DispenseItem()
+	if err != nil {
+		log.Fatalf(err.Error())
 	}
-	if err := vendingMachine.DispenseItem(); err != nil {
-		fmt.Printf("err: %s\n", err)
+
+	fmt.Println()
+
+	err = vendingMachine.AddItem(2)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+
+	fmt.Println()
+
+	err = vendingMachine.RequestItem()
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+
+	err = vendingMachine.InsertMoney(10)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+
+	err = vendingMachine.DispenseItem()
+	if err != nil {
+		log.Fatalf(err.Error())
 	}
 }

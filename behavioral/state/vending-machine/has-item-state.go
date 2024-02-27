@@ -8,17 +8,18 @@ type HasItemState struct {
 
 func (h *HasItemState) RequestItem() error {
 	if h.vendingMachine.itemCount == 0 {
-		h.vendingMachine.currentState = h.vendingMachine.NoItemState
+		h.vendingMachine.SetState(h.vendingMachine.NoItemState)
 		return fmt.Errorf("item out of stock")
 	}
-	fmt.Printf("Item requestd\n")
-	h.vendingMachine.currentState = h.vendingMachine.HasMoneyState
+	fmt.Printf("Item requested\n")
+	h.vendingMachine.SetState(h.vendingMachine.ItemRequestedState)
 	return nil
 }
 
 func (h *HasItemState) AddItem(i int) error {
 	fmt.Printf("Adding %d items\n", i)
 	h.vendingMachine.IncrementItem(i)
+	h.vendingMachine.SetState(h.vendingMachine.HasItemState)
 	return nil
 }
 

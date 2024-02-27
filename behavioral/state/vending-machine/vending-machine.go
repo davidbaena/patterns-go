@@ -1,5 +1,6 @@
 package main
 
+// VendingMachine is the context
 type VendingMachine struct {
 	NoItemState        State
 	HasItemState       State
@@ -27,6 +28,10 @@ func (v *VendingMachine) DispenseItem() error {
 	return v.currentState.DispenseItem()
 }
 
+func (v *VendingMachine) SetState(s State) {
+	v.currentState = s
+}
+
 func NewVendingMachine(itemCount, itemPrice int) *VendingMachine {
 
 	v := &VendingMachine{
@@ -38,7 +43,7 @@ func NewVendingMachine(itemCount, itemPrice int) *VendingMachine {
 	v.ItemRequestedState = &ItemRequestedState{v}
 	v.HasMoneyState = &HasMoneyState{v}
 
-	v.currentState = v.NoItemState
+	v.currentState = v.HasItemState
 
 	return v
 }
