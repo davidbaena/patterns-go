@@ -10,33 +10,24 @@ three design patterns come into play:
    operational modes based on external factors (e.g., time of day, occupancy, weather conditions). Each mode represents
    a distinct state.
 
-2. **Prototype Pattern**: The prototype pattern helps us create new instances of climate control profiles efficiently.
-   We'll define prototype objects for various scenarios (e.g., "Morning Mode," "Eco Mode," "Party Mode") and clone them
-   as needed.
-
-3. **Observer Pattern**: Our smart home system involves multiple components (temperature sensors, humidity sensors, user
+2. **Observer Pattern**: Our smart home system involves multiple components (temperature sensors, humidity sensors, user
    interfaces). The observer pattern ensures that these components stay synchronized. When the system state changes (
    e.g., from "Morning Mode" to "Party Mode"), all relevant components receive updates.
 
 ## Details
 
+
 1. **State Pattern**:
     - **States**: Our climate control system has the following states:
         - **Morning Mode**: Gentle temperature rise, natural light simulation, and soft music.
+      - **Afternoon Mode**: Elevated temperature, bright lighting, and upbeat music.
+      - **Night Mode**: Low temperature, minimal lighting, and soothing music.
         - **Eco Mode**: Energy-efficient settings (lower temperature, minimal lighting).
         - **Party Mode**: Elevated temperature, vibrant lighting, and lively music.
     - **Context (ClimateControlSystem)**: Manages the current state and transitions between modes. When occupants wake
       up, it switches to "Morning Mode." If no one is home, it enters "Eco Mode."
 
-2. **Prototype Pattern**:
-    - **Prototype Objects**:
-        - **MorningProfile**: Represents morning settings (temperature, lighting, music).
-        - **EcoProfile**: Represents energy-saving settings.
-        - **PartyProfile**: Represents party settings.
-    - **Cloning Mechanism**: When a user customizes their preferences (e.g., adjusts the morning temperature), the
-      system clones the relevant prototype and applies the modifications.
-
-3. **Observer Pattern**:
+2. **Observer Pattern**:
     - **Observers**:
         - **TemperatureSensor**: Monitors room temperature.
         - **OccupancySensor**: Detects human presence.
