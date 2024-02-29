@@ -30,7 +30,7 @@ three design patterns come into play:
 2. **Observer Pattern**:
     - **Observers**:
         - **TemperatureSensor**: Monitors room temperature.
-        - **OccupancySensor**: Detects human presence.
+      - **PresenceSensor**: Detects human presence.
         - **UIPanel**: Displays the current mode and allows users to switch between profiles.
     - **Subject (ClimateControlSystem)**: Notifies observers when the system state changes.
     - **Behavior**:
