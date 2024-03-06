@@ -21,6 +21,6 @@ func main() {
 	folder2.print(" ")
 	clonedFolder := folder2.clone()
 
-	fmt.Println("\nPrint folder2 without clone:")
+	fmt.Println("\nPrint folder2 cloned:")
 	clonedFolder.print(" ")
 }
