@@ -7,9 +7,15 @@ func main() {
 	quadcopter101.describe()
 
 	//Add features to the quadcopter
-	avoidance := NewObstacleAvoidance(quadcopter101)
+	avoidance := NewObstacleAvoidance(quadcopter101.controlSystem())
 	nightVision := NewNightVision(avoidance)
+	quadcopter101.setControlSystem(nightVision)
 
-	flight := nightVision.Flight()
-	println(flight)
+	println(quadcopter101.controlSystem().Flight())
+
+	remoteControl := &RemoteControl{}
+	remoteControl.Submit(&TakeOffCommand{Drone: quadcopter101})
+	remoteControl.Submit(&RoutePlannerCommand{Drone: quadcopter101})
+	remoteControl.Submit(&LandCommand{Drone: quadcopter101})
+	remoteControl.Process()
 }

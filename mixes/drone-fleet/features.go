@@ -4,6 +4,12 @@ type ControlSystem interface {
 	Flight() string
 }
 
+type BasicControlSystem struct{}
+
+func (bcs BasicControlSystem) Flight() string {
+	return "Initiating basic flight"
+}
+
 type ObstacleAvoidance struct {
 	wrappee ControlSystem
 }
