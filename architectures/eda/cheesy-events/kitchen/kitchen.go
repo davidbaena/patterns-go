@@ -16,13 +16,16 @@ type PizzaPreparedEvent struct {
 
 // KitchenService represents the service responsible for pizza preparation
 type KitchenService struct {
-	eventBus *eventbus.EventBus
+	eventBus       *eventbus.EventBus
+	pizzasPrepared int
+	maxPizzas      int
 }
 
 // NewKitchenService creates a new instance of the kitchen service
-func NewKitchenService(eventBus *eventbus.EventBus) *KitchenService {
+func NewKitchenService(eventBus *eventbus.EventBus, maxPizzas int) *KitchenService {
 	return &KitchenService{
-		eventBus: eventBus,
+		eventBus:  eventBus,
+		maxPizzas: maxPizzas,
 	}
 }
 
@@ -32,6 +35,12 @@ func (ks *KitchenService) PreparePizza(eventChan <-chan eventbus.Event) {
 		orderPlacedEvent, ok := event.Data.(orders.OrderPlacedEvent)
 		if !ok {
 			fmt.Println("Invalid event data")
+			continue
+		}
+
+		// Check if maximum number of pizzas have been prepared
+		if ks.pizzasPrepared >= ks.maxPizzas {
+			fmt.Println("Maximum number of pizzas prepared. Cannot prepare more.")
 			continue
 		}
 
@@ -50,5 +59,8 @@ func (ks *KitchenService) PreparePizza(eventChan <-chan eventbus.Event) {
 
 		// Publish the event
 		ks.eventBus.Publish(event)
+
+		// Increment the number of pizzas prepared
+		ks.pizzasPrepared++
 	}
 }

@@ -15,7 +15,7 @@ func main() {
 
 	// Create the services
 	orderService := orders.NewOrderService(eventBus)
-	kitchenService := kitchen.NewKitchenService(eventBus)
+	kitchenService := kitchen.NewKitchenService(eventBus, 2)
 	deliveryService := delivery.NewDeliveryService(eventBus)
 
 	// Create channels for the events
@@ -31,6 +31,8 @@ func main() {
 	go deliveryService.DeliverPizza(pizzaPreparedChan)
 
 	// Place an order
+	orderService.PlaceOrder("1", "Margherita")
+	orderService.PlaceOrder("1", "Margherita")
 	orderService.PlaceOrder("1", "Margherita")
 
 	time.Sleep(2 * time.Second)
