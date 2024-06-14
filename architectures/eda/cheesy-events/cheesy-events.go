@@ -1,6 +1,8 @@
 package main
 
 import (
+	"time"
+
 	"cheesy-events/delivery"
 	"cheesy-events/eventbus"
 	"cheesy-events/kitchen"
@@ -30,4 +32,6 @@ func main() {
 
 	// Place an order
 	orderService.PlaceOrder("1", "Margherita")
+
+	time.Sleep(2 * time.Second)
 }
