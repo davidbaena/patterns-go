@@ -1,4 +1,7 @@
 import json
+import subprocess
+import sys
+
 import networkx as nx
 from matplotlib import pyplot as plt
 
@@ -10,11 +13,15 @@ def read_json_file(file_path):
     return data
 
 
-def read_changed_file(file_path):
-    # Read the file into a list
-    with open(file_path, 'r') as file:
-        lines = [line.strip() for line in file]
-    return lines
+def get_pr_diff(pr_url, repo):
+    # Execute the command and capture the output
+    result = subprocess.run(
+        ['gh', 'pr', 'diff', pr_url, '--repo', repo, '--name-only'],
+        capture_output=True,
+        text=True
+    )
+    # Return the output
+    return result.stdout.strip().split('\n')
 
 
 def plot_nodes_changed(changed_files):
@@ -35,10 +42,13 @@ def plot_nodes_changed(changed_files):
 
 
 if __name__ == '__main__':
-    # Define the file path
-    absolute_file_path = '../changed_files.txt'
+    # Retrieve from arguments the PRname
+    pr_url = sys.argv[1]
+    #    pr_url = 'https://github.com/davidbaena/patterns-go/pull/1'
+    repo = 'davidbaena/patterns-go'
+    changed_files = get_pr_diff(pr_url, repo)
 
-    changed_files = read_changed_file(absolute_file_path)
+    # changed_files = read_changed_file(absolute_file_path)
     changed_files = ['patterns-go/' + file for file in changed_files]
 
     json_file_path = './go-viz/emerge-statistics-and-metrics.json'
@@ -62,6 +72,5 @@ if __name__ == '__main__':
               str(metrics['file_result_dependency_graph_louvain-modularity-in-file']).ljust(10),
               str(metrics['fan-in-dependency-graph']).ljust(10),
               str(metrics['fan-out-dependency-graph']).ljust(10))
-
 
 # %%
