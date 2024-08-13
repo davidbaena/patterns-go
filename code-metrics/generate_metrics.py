@@ -41,20 +41,22 @@ if __name__ == '__main__':
     changed_files = read_changed_file(absolute_file_path)
     changed_files = ['patterns-go/' + file for file in changed_files]
 
-    json_file_path = '../go-viz/emerge-statistics-and-metrics.json'
+    json_file_path = './go-viz/emerge-statistics-and-metrics.json'
     metrics_data = read_json_file(json_file_path)
 
     metrics_files_changed = {file: metrics_data['local-metrics'][file] for file in changed_files if
                              file in metrics_data['local-metrics']}
 
-    print("File Name".ljust(50),
+    print("File Name".ljust(30),
           "methods-in-file".ljust(10),
           "sloc-in-file".ljust(10),
           "louvain-modularity".ljust(10),
           "fan-in".ljust(10),
           "fan-out".ljust(10))
     for file, metrics in metrics_files_changed.items():
-        print(file.ljust(50),
+        #truncate the file name
+        file = file.split('/')[-1]
+        print(file.ljust(30),
               str(metrics['number-of-methods-in-file']).ljust(20),
               str(metrics['sloc-in-file']).ljust(20),
               str(metrics['file_result_dependency_graph_louvain-modularity-in-file']).ljust(10),
