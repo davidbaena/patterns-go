@@ -1,6 +1,6 @@
 /**
- * * MARK: - Metric info badge tooltip descriptions
- */
+* * MARK: - Metric info badge tooltip descriptions
+*/
 const description_metric_sloc_in_file = '"Source lines of code (SLOC), also known as lines of code (LOC), is a software metric used to measure the size of a computer program by counting the number of lines in the text of the programs source code. SLOC is typically used to predict the amount of effort that will be required to develop a program, as well as to estimate programming productivity or maintainability once the software is produced." (Wikipedia)'
 const description_metric_number_of_methods = 'A metric representing the total number of methods found per file or entity. This is similar to a weighted methods per class (WMC) metric with a uniform complexity/weight of 1.'
 const description_metric_fan_in = '"Fan-in coupling (afferent coupling) the number of entities that depend on a given entity. It estimates in what extent the "external world" depends on the changes in a given entity" (gcc.gnu.org). This metric represents the number of dependencies FROM other files or entities.'
@@ -26,12 +26,12 @@ const description_heat_map_hotspot = 'The hotspot heatmap tries to identify prob
 
 
 const wide_tooltip_template =
-    `
+`
 '<div class="tooltip wide-tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
 `
 
 const description_shortcuts_tooltip =
-    `
+`
 <b>shift + s</b> 👉 (de)select hovered nodes
 <br>
 
@@ -62,22 +62,22 @@ function addToolTipsToMetricEntries() {
     $('#badge_metric_sloc_in_file').attr('data-bs-title', description_metric_sloc_in_file)
     $('#badge_metric_sloc_in_file').attr('data-bs-html', 'true')
     $('#badge_metric_sloc_in_file').attr('data-bs-placement', 'bottom')
-
+    
     $('#badge_metric_sloc_in_entity').attr('data-bs-toggle', 'tooltip')
     $('#badge_metric_sloc_in_entity').attr('data-bs-title', description_metric_sloc_in_file)
     $('#badge_metric_sloc_in_entity').attr('data-bs-html', 'true')
     $('#badge_metric_sloc_in_entity').attr('data-bs-placement', 'bottom')
-
+    
     $('#badge_metric_number_of_methods_in_file').attr('data-bs-toggle', 'tooltip')
     $('#badge_metric_number_of_methods_in_file').attr('data-bs-title', description_metric_number_of_methods)
     $('#badge_metric_number_of_methods_in_file').attr('data-bs-html', 'true')
     $('#badge_metric_number_of_methods_in_file').attr('data-bs-placement', 'bottom')
-
+    
     $('#badge_metric_number_of_methods_in_entity').attr('data-bs-toggle', 'tooltip')
     $('#badge_metric_number_of_methods_in_entity').attr('data-bs-title', description_metric_number_of_methods)
     $('#badge_metric_number_of_methods_in_entity').attr('data-bs-html', 'true')
     $('#badge_metric_number_of_methods_in_entity').attr('data-bs-placement', 'bottom')
-
+    
     $('#badge_metric_ws_complexity_in_file').attr('data-bs-toggle', 'tooltip')
     $('#badge_metric_ws_complexity_in_file').attr('data-bs-title', description_metric_ws_complexity_in_file)
     $('#badge_metric_ws_complexity_in_file').attr('data-bs-html', 'true')
@@ -110,29 +110,29 @@ function addToolTipsToMetricEntries() {
     // $('#badge_metric_fan_in_complete_graph').tooltip();
     $('#badge_metric_fan_in_inheritance_graph').attr('title', description_metric_fan_in)
     // $('#badge_metric_fan_in_inheritance_graph').tooltip();
-
+    
     $('#badge_metric_fan_out_dependency_graph').attr('title', description_metric_fan_out)
     // $('#badge_metric_fan_out_dependency_graph').tooltip();
     $('#badge_metric_fan_out_complete_graph').attr('title', description_metric_fan_out)
     // $('#badge_metric_fan_out_complete_graph').tooltip();
     $('#badge_metric_fan_out_inheritance_graph').attr('title', description_metric_fan_out)
     // $('#badge_metric_fan_out_inheritance_graph').tooltip();
-
+    
     $('#badge_metric_file_result_dependency_graph_louvain_modularity_file').attr('title', description_metric_louvain_modularity)
     // $('#badge_metric_file_result_dependency_graph_louvain_modularity_file').tooltip();
-
+    
     $('#badge_metric_entity_result_dependency_graph_louvain_modularity_in_entity').attr('title', description_metric_louvain_modularity)
     // $('#badge_metric_entity_result_dependency_graph_louvain_modularity_in_entity').tooltip();
-
+    
     $('#badge_metric_entity_result_inheritance_graph_louvain_modularity_in_entity').attr('title', description_metric_louvain_modularity)
     // $('#badge_metric_entity_result_inheritance_graph_louvain_modularity_in_entity').tooltip();
-
+    
     $('#badge_metric_entity_result_complete_graph_louvain_modularity_in_entity').attr('title', description_metric_louvain_modularity)
     // $('#badge_metric_entity_result_complete_graph_louvain_modularity_in_entity').tooltip();
-
+    
     $('#badge_metric_entity_result_complete_graph_louvain_modularity_in_entity').attr('title', description_metric_louvain_modularity)
     // $('#badge_metric_entity_result_complete_graph_louvain_modularity_in_entity').tooltip();
-
+    
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 }
@@ -150,13 +150,13 @@ function addTooltipToContributorSearch() {
 function addToolTipsToHeatMap() {
     const badgeHeatmapNormalTooltip = new bootstrap.Tooltip(document.getElementById('badge_heat_map_normal'), {});
     badgeHeatmapNormalTooltip._config.title = description_heat_map_normal
-
+    
     const badgeHeatmapHybridTooltip = new bootstrap.Tooltip(document.getElementById('badge_heat_map_hybrid'), {});
     badgeHeatmapHybridTooltip._config.title = description_heat_map_hybrid
 
     const badgeHeatmapChurnTooltip = new bootstrap.Tooltip(document.getElementById('badge_heat_map_churn'), {});
     badgeHeatmapChurnTooltip._config.title = description_heat_map_churn
-
+    
     const badgeHeatmapHotspotTooltip = new bootstrap.Tooltip(document.getElementById('badge_heat_map_hotspot'), {});
     badgeHeatmapHotspotTooltip._config.title = description_heat_map_hotspot
 }
@@ -186,8 +186,8 @@ function addTooltipProjectInfo() {
     let configProjectName = analysis_config['project_name']
     let analysisName = getAnalysisName()
     let configAnalysisDateTime = analysis_config['analysis_date']
-
-    description_project_info = "<strong>Project:</strong> " + configProjectName + "<br>" + "<strong>Analysis:</strong> " + analysisName + "<br>" + "<strong>Date:</strong> " + configAnalysisDateTime
+    
+    description_project_info = "<strong>Project:</strong> " + configProjectName + "<br>" + "<strong>Analysis:</strong> " + analysisName + "<br>" + "<strong>Date:</strong> " + configAnalysisDateTime          
     const badgeProjectInfoTooltip = new bootstrap.Tooltip(document.getElementById('badge_project_info'), {});
     badgeProjectInfoTooltip._config.title = description_project_info
 }

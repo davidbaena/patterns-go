@@ -1,7 +1,7 @@
 function edgeBetweenSearchTerms(sourceNode, targetNode) {
     let found = false
     searchTerms.forEach(element => {
-        if ((sourceNode.id.toLowerCase().includes(element)) && (targetNode.id.toLowerCase().includes(element))) {
+        if ( (sourceNode.id.toLowerCase().includes(element)) && (targetNode.id.toLowerCase().includes(element)) ) {
             found = true
         }
     });
@@ -53,7 +53,7 @@ function searchTermIncludedInNode(node) {
 function searchTermIncludedInNodeTags(node) {
     let found = false
     searchTerms.forEach(element => {
-        if (stringIncludedInNodeTags(element, node)) {
+        if ( stringIncludedInNodeTags(element, node) ) {
             found = true
         }
     });
@@ -63,7 +63,7 @@ function searchTermIncludedInNodeTags(node) {
 function searchTermIncludedInNodeContributors(node) {
     let found = false
     searchTerms.forEach(element => {
-        if (stringIncludedInNodeContributors(element, node)) {
+        if ( stringIncludedInNodeContributors(element, node) ) {
             found = true
         }
     });

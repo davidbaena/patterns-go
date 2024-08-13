@@ -97,7 +97,7 @@
 
 [data-theme="dark"] .daterangepicker .calendar-table {
     border: 1px solid #202020;
-    background-color: #202020;
+    background-color: #202020; 
 }
 
 [data-theme="dark"] .daterangepicker .cancelBtn {
@@ -113,34 +113,34 @@
 }
 
 [data-theme="dark"] .daterangepicker .calendar-table .next span {
-    color: #eee;
-    border: solid #eee;
-    border-width: 0 2px 2px 0;
-    border-radius: 0;
-    display: inline-block;
-    padding: 3px;
+  color: #eee;
+  border: solid #eee;
+  border-width: 0 2px 2px 0;
+  border-radius: 0;
+  display: inline-block;
+  padding: 3px;
 }
 
 [data-theme="dark"] .daterangepicker .calendar-table .prev span {
-    color: #eee;
-    border: solid #eee;
-    border-width: 0 2px 2px 0;
-    border-radius: 0;
-    display: inline-block;
-    padding: 3px;
+  color: #eee;
+  border: solid #eee;
+  border-width: 0 2px 2px 0;
+  border-radius: 0;
+  display: inline-block;
+  padding: 3px;
 }
 
 [data-theme="dark"] .daterangepicker td.in-range {
-    background-color: #89bbe5;
-    border-color: transparent;
-    color: #000;
-    border-radius: 0;
+  background-color: #89bbe5;
+  border-color: transparent;
+  color: #000;
+  border-radius: 0;
 }
 
 [data-theme="dark"] .daterangepicker td.off, .daterangepicker td.off.in-range, .daterangepicker td.off.start-date, .daterangepicker td.off.end-date {
-    background-color: #363636;
-    border-color: transparent;
-    color: #dcdbdb;
+  background-color: #363636;
+  border-color: transparent;
+  color: #dcdbdb;
 }
 
 [data-theme="dark"] .toast {

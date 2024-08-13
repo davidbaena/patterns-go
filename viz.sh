@@ -1,0 +1,1 @@
+emerge -c config.yml

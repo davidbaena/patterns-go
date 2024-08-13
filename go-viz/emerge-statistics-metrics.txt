@@ -2,18 +2,17 @@ the following statistics were collected in golang check
 +-------------------------------------+-------------------+
 |                      statistic name | value             |
 +-------------------------------------+-------------------+
-|                    scanning_runtime | 00:00:00 + 231 ms |
+|                    scanning_runtime | 00:00:00 + 16 ms  |
 |                       scanned_files | 65                |
-|                       skipped_files | 472               |
+|                       skipped_files | 131               |
 |                        parsing_hits | 55                |
 |              extracted_file_results | 65                |
-|       file_results_creation_runtime | 00:00:01 + 44 ms  |
-|    number-of-methods-metric-runtime | 00:00:00 + 11 ms  |
-| source-lines-of-code-metric-runtime | 00:00:00 + 17 ms  |
-|                 git-metrics-runtime | 00:00:03 + 499 ms |
-|   louvain-modularity-metric-runtime | 00:00:00 + 26 ms  |
-|           fan-in-out-metric-runtime | 00:00:00 + 11 ms  |
-|                       total_runtime | 00:00:04 + 842 ms |
+|       file_results_creation_runtime | 00:00:00 + 147 ms |
+|    number-of-methods-metric-runtime | 00:00:00 + 1 ms   |
+| source-lines-of-code-metric-runtime | 00:00:00 + 1 ms   |
+|   louvain-modularity-metric-runtime | 00:00:00 + 6 ms   |
+|           fan-in-out-metric-runtime | 00:00:00 + 0 ms   |
+|                       total_runtime | 00:00:00 + 172 ms |
 +-------------------------------------+-------------------+
 
 the following overall metrics were collected in golang check
