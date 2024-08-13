@@ -39,6 +39,7 @@ To run the analysis and generate the visualizations, use the following command:
 ```shell
 emerge -c config.yml
 ```
+![Go Patterns Shape](img/go_patterns_shape.png)
 
 ## Conclusion
 
