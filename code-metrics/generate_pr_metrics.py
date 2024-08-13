@@ -78,21 +78,30 @@ if __name__ == '__main__':
     # Merge the two dataframes and apply the operation subtract to diff the metrics
     merged_df = pd.merge(df_main, df, on='file', suffixes=('_main', '_pr'))
     # Calculate the difference between the metrics
-    merged_df['number-of-methods-in-file'] = merged_df['number-of-methods-in-file_pr'] - merged_df[
+    merged_df['methods_diff'] = merged_df['number-of-methods-in-file_pr'] - merged_df[
         'number-of-methods-in-file_main']
-    merged_df['sloc-in-file_diff'] = merged_df['sloc-in-file_pr'] - merged_df['sloc-in-file_main']
-    merged_df['file_result_dependency_graph_louvain-modularity-in-file_diff'] = merged_df[
+    merged_df['sloc_diff'] = merged_df['sloc-in-file_pr'] - merged_df['sloc-in-file_main']
+    merged_df['louvain_diff'] = merged_df[
                                                                                     'file_result_dependency_graph_louvain-modularity-in-file_pr'] - \
                                                                                 merged_df[
                                                                                     'file_result_dependency_graph_louvain-modularity-in-file_main']
-    merged_df['fan-in-dependency-graph_diff'] = merged_df['fan-in-dependency-graph_pr'] - merged_df[
+    merged_df['fan_in_diff'] = merged_df['fan-in-dependency-graph_pr'] - merged_df[
         'fan-in-dependency-graph_main']
-    merged_df['fan-out-dependency-graph_diff'] = merged_df['fan-out-dependency-graph_pr'] - merged_df[
+    merged_df['fan_out_diff'] = merged_df['fan-out-dependency-graph_pr'] - merged_df[
         'fan-out-dependency-graph_main']
 
     # save the merged dataframe to a csv file
-    merged_df[['number-of-methods-in-file', 'sloc-in-file_diff',
-               'file_result_dependency_graph_louvain-modularity-in-file_diff', 'fan-in-dependency-graph_diff',
-               'fan-out-dependency-graph_diff']].to_csv('pr_metrics.csv', index=False)
+    merged_df[['file',
+               'methods_diff',
+               'sloc_diff',
+               'louvain_diff',
+               'fan_in_diff',
+               'fan_out_diff']].to_csv('pr_metrics.csv', index=False)
 
+    print(merged_df[['file',
+                     'methods_diff',
+                     'sloc_diff',
+                     'louvain_diff',
+                     'fan_in_diff',
+                     'fan_out_diff']].to_string(index=False))
 

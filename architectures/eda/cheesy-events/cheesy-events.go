@@ -34,6 +34,7 @@ func main() {
 	orderService.PlaceOrder("1", "Margherita")
 	orderService.PlaceOrder("1", "Margherita")
 	orderService.PlaceOrder("1", "Margherita")
+	orderService.PlaceOrder("1", "Margherita")
 
 	time.Sleep(2 * time.Second)
 }
