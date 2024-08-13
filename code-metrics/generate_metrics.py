@@ -42,7 +42,6 @@ def plot_nodes_changed(changed_files):
 
 
 if __name__ == '__main__':
-    # Retrieve from arguments the PRname
     pr_url = sys.argv[1]
     #    pr_url = 'https://github.com/davidbaena/patterns-go/pull/1'
     repo = 'davidbaena/patterns-go'
@@ -66,7 +65,6 @@ if __name__ == '__main__':
           "fan-in".ljust(10),
           "fan-out".ljust(10))
     for file, metrics in metrics_files_changed.items():
-        #truncate the file name
         file = file.split('/')[-1]
         print(file.ljust(30),
               str(metrics['number-of-methods-in-file']).ljust(20),
@@ -74,5 +72,3 @@ if __name__ == '__main__':
               str(metrics['file_result_dependency_graph_louvain-modularity-in-file']).ljust(10),
               str(metrics['fan-in-dependency-graph']).ljust(10),
               str(metrics['fan-out-dependency-graph']).ljust(10))
-
-# %%
