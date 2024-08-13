@@ -46,6 +46,8 @@ if __name__ == '__main__':
     pr_url = sys.argv[1]
     #    pr_url = 'https://github.com/davidbaena/patterns-go/pull/1'
     repo = 'davidbaena/patterns-go'
+    print("PR URL: ", pr_url)
+
     changed_files = get_pr_diff(pr_url, repo)
 
     # changed_files = read_changed_file(absolute_file_path)
