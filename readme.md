@@ -38,6 +38,7 @@ This project uses the [emerge](https://github.com/glato/emerge) library to visua
 To run the analysis and generate the visualizations, use the following command:
 ```shell
 emerge -c config.yml
+```
 
 ## Conclusion
 
