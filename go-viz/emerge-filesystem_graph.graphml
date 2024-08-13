@@ -813,20 +813,285 @@
       <data key="d1">False</data>
       <data key="d2">patterns-go/.git/refs</data>
     </node>
+    <node id="patterns-go/.git/objects/92">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/92</data>
+    </node>
+    <node id="patterns-go/.git/objects/6a">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/6a</data>
+    </node>
+    <node id="patterns-go/.git/objects/69">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/69</data>
+    </node>
+    <node id="patterns-go/.git/objects/51">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/51</data>
+    </node>
+    <node id="patterns-go/.git/objects/58">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/58</data>
+    </node>
+    <node id="patterns-go/.git/objects/67">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/67</data>
+    </node>
+    <node id="patterns-go/.git/objects/0e">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/0e</data>
+    </node>
+    <node id="patterns-go/.git/objects/60">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/60</data>
+    </node>
+    <node id="patterns-go/.git/objects/5f">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/5f</data>
+    </node>
+    <node id="patterns-go/.git/objects/9c">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/9c</data>
+    </node>
+    <node id="patterns-go/.git/objects/a3">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/a3</data>
+    </node>
+    <node id="patterns-go/.git/objects/ac">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/ac</data>
+    </node>
+    <node id="patterns-go/.git/objects/bb">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/bb</data>
+    </node>
+    <node id="patterns-go/.git/objects/be">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/be</data>
+    </node>
+    <node id="patterns-go/.git/objects/a2">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/a2</data>
+    </node>
+    <node id="patterns-go/.git/objects/d8">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/d8</data>
+    </node>
+    <node id="patterns-go/.git/objects/e2">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/e2</data>
+    </node>
+    <node id="patterns-go/.git/objects/c7">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/c7</data>
+    </node>
+    <node id="patterns-go/.git/objects/cf">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/cf</data>
+    </node>
+    <node id="patterns-go/.git/objects/c8">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/c8</data>
+    </node>
+    <node id="patterns-go/.git/objects/4e">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/4e</data>
+    </node>
+    <node id="patterns-go/.git/objects/20">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/20</data>
+    </node>
     <node id="patterns-go/.git/objects/pack">
       <data key="d0">True</data>
       <data key="d1">False</data>
       <data key="d2">patterns-go/.git/objects/pack</data>
+    </node>
+    <node id="patterns-go/.git/objects/7d">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/7d</data>
+    </node>
+    <node id="patterns-go/.git/objects/1f">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/1f</data>
+    </node>
+    <node id="patterns-go/.git/objects/87">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/87</data>
+    </node>
+    <node id="patterns-go/.git/objects/8a">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/8a</data>
+    </node>
+    <node id="patterns-go/.git/objects/72">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/72</data>
+    </node>
+    <node id="patterns-go/.git/objects/9a">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/9a</data>
+    </node>
+    <node id="patterns-go/.git/objects/09">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/09</data>
     </node>
     <node id="patterns-go/.git/objects/info">
       <data key="d0">True</data>
       <data key="d1">False</data>
       <data key="d2">patterns-go/.git/objects/info</data>
     </node>
+    <node id="patterns-go/.git/objects/39">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/39</data>
+    </node>
+    <node id="patterns-go/.git/objects/99">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/99</data>
+    </node>
+    <node id="patterns-go/.git/objects/97">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/97</data>
+    </node>
+    <node id="patterns-go/.git/objects/64">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/64</data>
+    </node>
+    <node id="patterns-go/.git/objects/ba">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/ba</data>
+    </node>
+    <node id="patterns-go/.git/objects/b8">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/b8</data>
+    </node>
+    <node id="patterns-go/.git/objects/dc">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/dc</data>
+    </node>
+    <node id="patterns-go/.git/objects/d5">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/d5</data>
+    </node>
+    <node id="patterns-go/.git/objects/a6">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/a6</data>
+    </node>
+    <node id="patterns-go/.git/objects/b9">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/b9</data>
+    </node>
+    <node id="patterns-go/.git/objects/a1">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/a1</data>
+    </node>
+    <node id="patterns-go/.git/objects/ea">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/ea</data>
+    </node>
+    <node id="patterns-go/.git/objects/e1">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/e1</data>
+    </node>
+    <node id="patterns-go/.git/objects/cc">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/cc</data>
+    </node>
     <node id="patterns-go/.git/objects/e6">
       <data key="d0">True</data>
       <data key="d1">False</data>
       <data key="d2">patterns-go/.git/objects/e6</data>
+    </node>
+    <node id="patterns-go/.git/objects/e8">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/e8</data>
+    </node>
+    <node id="patterns-go/.git/objects/fa">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/fa</data>
+    </node>
+    <node id="patterns-go/.git/objects/ff">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/ff</data>
+    </node>
+    <node id="patterns-go/.git/objects/e9">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/e9</data>
+    </node>
+    <node id="patterns-go/.git/objects/f8">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/f8</data>
+    </node>
+    <node id="patterns-go/.git/objects/46">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/46</data>
+    </node>
+    <node id="patterns-go/.git/objects/8d">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/8d</data>
+    </node>
+    <node id="patterns-go/.git/objects/8c">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/8c</data>
+    </node>
+    <node id="patterns-go/.git/objects/82">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/82</data>
+    </node>
+    <node id="patterns-go/.git/objects/14">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/objects/14</data>
     </node>
     <node id="patterns-go/.git/logs/refs">
       <data key="d0">True</data>
@@ -842,6 +1107,11 @@
       <data key="d0">True</data>
       <data key="d1">False</data>
       <data key="d2">patterns-go/.git/logs/refs/remotes</data>
+    </node>
+    <node id="patterns-go/.git/logs/refs/heads/task">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/logs/refs/heads/task</data>
     </node>
     <node id="patterns-go/.git/logs/refs/remotes/origin">
       <data key="d0">True</data>
@@ -862,6 +1132,11 @@
       <data key="d0">True</data>
       <data key="d1">False</data>
       <data key="d2">patterns-go/.git/refs/remotes</data>
+    </node>
+    <node id="patterns-go/.git/refs/heads/task">
+      <data key="d0">True</data>
+      <data key="d1">False</data>
+      <data key="d2">patterns-go/.git/refs/heads/task</data>
     </node>
     <node id="patterns-go/.git/refs/remotes/origin">
       <data key="d0">True</data>
@@ -1169,16 +1444,71 @@
     <edge source="patterns-go/structural/decorator" target="patterns-go/structural/decorator/encryption-decorator.go" />
     <edge source="patterns-go/structural/decorator" target="patterns-go/structural/decorator/file-data-source.go" />
     <edge source="patterns-go/structural/decorator" target="patterns-go/structural/decorator/compression-decorator.go" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/92" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/6a" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/69" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/51" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/58" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/67" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/0e" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/60" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/5f" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/9c" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/a3" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/ac" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/bb" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/be" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/a2" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/d8" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/e2" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/c7" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/cf" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/c8" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/4e" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/20" />
     <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/pack" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/7d" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/1f" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/87" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/8a" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/72" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/9a" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/09" />
     <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/info" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/39" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/99" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/97" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/64" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/ba" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/b8" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/dc" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/d5" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/a6" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/b9" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/a1" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/ea" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/e1" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/cc" />
     <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/e6" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/e8" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/fa" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/ff" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/e9" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/f8" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/46" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/8d" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/8c" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/82" />
+    <edge source="patterns-go/.git/objects" target="patterns-go/.git/objects/14" />
     <edge source="patterns-go/.git/logs" target="patterns-go/.git/logs/refs" />
     <edge source="patterns-go/.git/refs" target="patterns-go/.git/refs/heads" />
     <edge source="patterns-go/.git/refs" target="patterns-go/.git/refs/tags" />
     <edge source="patterns-go/.git/refs" target="patterns-go/.git/refs/remotes" />
     <edge source="patterns-go/.git/logs/refs" target="patterns-go/.git/logs/refs/heads" />
     <edge source="patterns-go/.git/logs/refs" target="patterns-go/.git/logs/refs/remotes" />
+    <edge source="patterns-go/.git/logs/refs/heads" target="patterns-go/.git/logs/refs/heads/task" />
     <edge source="patterns-go/.git/logs/refs/remotes" target="patterns-go/.git/logs/refs/remotes/origin" />
+    <edge source="patterns-go/.git/refs/heads" target="patterns-go/.git/refs/heads/task" />
     <edge source="patterns-go/.git/refs/remotes" target="patterns-go/.git/refs/remotes/origin" />
     <edge source="patterns-go/mixes/home-control-system" target="patterns-go/mixes/home-control-system/eco-mode.go" />
     <edge source="patterns-go/mixes/home-control-system" target="patterns-go/mixes/home-control-system/presence-sensor.go" />
