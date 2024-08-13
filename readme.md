@@ -31,6 +31,14 @@ In Go, you can use goroutines to run functions concurrently. Channels then provi
 communicate and synchronize. This model of concurrency allows you to write systems that efficiently use all available
 CPU cores and handle many tasks at the same time.
 
+## Code Visualization and Metrics
+
+This project uses the [emerge](https://github.com/glato/emerge) library to visualize code as a graph and add various metrics. The `emerge` library helps in analyzing the codebase and generating visual representations and metrics to better understand the structure and dependencies within the code.
+
+To run the analysis and generate the visualizations, use the following command:
+```shell
+emerge -c config.yml
+
 ## Conclusion
 
 This repository aims to provide clear examples and explanations of design patterns and concurrency in Go. It's a great
