@@ -1,9 +1,21 @@
 import json
 import subprocess
 import sys
-
+import pandas as pd
 import networkx as nx
 from matplotlib import pyplot as plt
+
+
+def json_to_dataframe(json_data):
+    # Convert JSON data to a list of dictionaries
+    data_list = []
+    for file, metrics in json_data.items():
+        metrics['file'] = file
+        data_list.append(metrics)
+
+    # Convert the list of dictionaries to a pandas DataFrame
+    df = pd.DataFrame(data_list)
+    return df
 
 
 def read_json_file(file_path):
@@ -48,6 +60,7 @@ if __name__ == '__main__':
     print("PR URL: ", pr_url)
 
     changed_files = get_pr_diff(pr_url, repo)
+    print("Fetch changed files Done!")
 
     # changed_files = read_changed_file(absolute_file_path)
     changed_files = ['patterns-go/' + file for file in changed_files]
@@ -55,19 +68,31 @@ if __name__ == '__main__':
     json_file_path = './go-viz/emerge-statistics-and-metrics.json'
     metrics_data = read_json_file(json_file_path)
 
-    metrics_files_changed = {file: metrics_data['local-metrics'][file] for file in changed_files if
-                             file in metrics_data['local-metrics']}
-    print("File Name".ljust(30),
-          "methods-in-file".ljust(10),
-          "sloc-in-file".ljust(10),
-          "louvain-modularity".ljust(10),
-          "fan-in".ljust(10),
-          "fan-out".ljust(10))
-    for file, metrics in metrics_files_changed.items():
-        file = file.split('/')[-1]
-        print(file.ljust(30),
-              str(metrics['number-of-methods-in-file']).ljust(20),
-              str(metrics['sloc-in-file']).ljust(20),
-              str(metrics['file_result_dependency_graph_louvain-modularity-in-file']).ljust(10),
-              str(metrics['fan-in-dependency-graph']).ljust(10),
-              str(metrics['fan-out-dependency-graph']).ljust(10))
+    metrics_pr_files_changed = {file: metrics_data['local-metrics'][file] for file in changed_files if
+                                file in metrics_data['local-metrics']}
+    # convert metrics_pr_files_changed to a pandas DataFrame
+    df = json_to_dataframe(metrics_pr_files_changed)
+
+    # load dataset_main_metrics.csv to compare the metrics
+    df_main = pd.read_csv('./code-metrics/dataset_main_metrics.csv')
+    # Merge the two dataframes and apply the operation subtract to diff the metrics
+    merged_df = pd.merge(df_main, df, on='file', suffixes=('_main', '_pr'))
+    # Calculate the difference between the metrics
+    merged_df['number-of-methods-in-file'] = merged_df['number-of-methods-in-file_pr'] - merged_df[
+        'number-of-methods-in-file_main']
+    merged_df['sloc-in-file_diff'] = merged_df['sloc-in-file_pr'] - merged_df['sloc-in-file_main']
+    merged_df['file_result_dependency_graph_louvain-modularity-in-file_diff'] = merged_df[
+                                                                                    'file_result_dependency_graph_louvain-modularity-in-file_pr'] - \
+                                                                                merged_df[
+                                                                                    'file_result_dependency_graph_louvain-modularity-in-file_main']
+    merged_df['fan-in-dependency-graph_diff'] = merged_df['fan-in-dependency-graph_pr'] - merged_df[
+        'fan-in-dependency-graph_main']
+    merged_df['fan-out-dependency-graph_diff'] = merged_df['fan-out-dependency-graph_pr'] - merged_df[
+        'fan-out-dependency-graph_main']
+
+    # save the merged dataframe to a csv file
+    merged_df[['number-of-methods-in-file', 'sloc-in-file_diff',
+               'file_result_dependency_graph_louvain-modularity-in-file_diff', 'fan-in-dependency-graph_diff',
+               'fan-out-dependency-graph_diff']].to_csv('pr_metrics.csv', index=False)
+
+
