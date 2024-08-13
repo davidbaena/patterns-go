@@ -39,7 +39,12 @@ func (os *OrderService) PlaceOrder(orderID, pizza string) {
 			Pizza:   pizza,
 		},
 	}
+	os.PrintEvent(event)
 
 	// Publish the event
 	os.eventBus.Publish(event)
+}
+
+func (os *OrderService) PrintEvent(event eventbus.Event) {
+	fmt.Printf("Event: %s\n", event.Type)
 }
