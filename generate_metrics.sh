@@ -1,1 +1,1 @@
-python ./code-metrics/generate_metrics.py $1
+python ./code-metrics/generate_pr_metrics.py $1

@@ -57,7 +57,6 @@ if __name__ == '__main__':
 
     metrics_files_changed = {file: metrics_data['local-metrics'][file] for file in changed_files if
                              file in metrics_data['local-metrics']}
-
     print("File Name".ljust(30),
           "methods-in-file".ljust(10),
           "sloc-in-file".ljust(10),

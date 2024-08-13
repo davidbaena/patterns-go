@@ -6,3 +6,5 @@
 /fixes-goviz.txt
 /changed_files.txt
 go-viz/*
+
+*.csv
