@@ -1,6 +1,7 @@
 package main
 
 import (
+	"cheesy-events/tracking"
 	"time"
 
 	"cheesy-events/delivery"
@@ -15,26 +16,15 @@ func main() {
 
 	// Create the services
 	orderService := orders.NewOrderService(eventBus)
-	kitchenService := kitchen.NewKitchenService(eventBus, 2)
-	deliveryService := delivery.NewDeliveryService(eventBus)
-
-	// Create channels for the events
-	orderPlacedChan := make(chan eventbus.Event)
-	pizzaPreparedChan := make(chan eventbus.Event)
-
-	// Subscribe the channels to the events
-	eventBus.Subscribe("OrderPlaced", orderPlacedChan)
-	eventBus.Subscribe("PizzaPrepared", pizzaPreparedChan)
-
-	// Start the event handlers
-	go kitchenService.PreparePizza(orderPlacedChan)
-	go deliveryService.DeliverPizza(pizzaPreparedChan)
+	kitchen.NewKitchenService(eventBus, 2)
+	delivery.NewDeliveryService(eventBus)
+	tracking.NewOrderTrackingService(eventBus)
 
 	// Place an order
 	orderService.PlaceOrder("1", "Margherita")
-	orderService.PlaceOrder("1", "Margherita")
-	orderService.PlaceOrder("1", "Margherita")
-	orderService.PlaceOrder("1", "Margherita")
+	//orderService.PlaceOrder("2", "BBQ Chicken")
+	//orderService.PlaceOrder("3", "Pepperoni")
+	//orderService.PlaceOrder("4", "Vegetarian")
 
 	time.Sleep(2 * time.Second)
 }
