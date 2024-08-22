@@ -1,11 +1,14 @@
 package orders
 
 import (
-	"fmt"
+	"cheesy-events/utils/logrus"
+	log "github.com/sirupsen/logrus"
 	"time"
 
 	"cheesy-events/eventbus"
 )
+
+var logger = logrus.NewLogger("orders")
 
 // OrderService represents the service responsible for order placement
 type OrderService struct {
@@ -22,6 +25,7 @@ func NewOrderService(eventBus *eventbus.EventBus) *OrderService {
 // OrderAcceptedEvent represents the event structure for order acceptance
 type OrderAcceptedEvent struct {
 	OrderID string
+	Pizza   string
 	Status  string
 }
 
@@ -29,12 +33,16 @@ type OrderAcceptedEvent struct {
 type OrderPlacedEvent struct {
 	OrderID string
 	Pizza   string
+	Status  string
 }
 
 // PlaceOrder places a new order and publishes an order placed event
 func (os *OrderService) PlaceOrder(orderID, pizza string) {
 	// Simulate order placement
-	fmt.Printf("Order placed: OrderID=%s, Pizza=%s\n", orderID, pizza)
+	logger.WithFields(log.Fields{
+		"order_id": orderID,
+		"pizza":    pizza,
+	}).Info("Order placed")
 
 	// Create the order placed event
 	event := eventbus.Event{
@@ -43,14 +51,18 @@ func (os *OrderService) PlaceOrder(orderID, pizza string) {
 		Data: OrderPlacedEvent{
 			OrderID: orderID,
 			Pizza:   pizza,
+			Status:  "Order Placed",
 		},
 	}
-	os.PrintEvent(event)
 
 	// Publish the event
 	os.eventBus.Publish(event)
 
-	fmt.Printf("Checking Fraud system....: %s\n", event.Type)
+	logger.WithFields(log.Fields{
+		"order_id": orderID,
+		"pizza":    pizza,
+	}).Info("Checking Fraud system....")
+
 	time.Sleep(1 * time.Second)
 
 	// Simulate order acceptance
@@ -59,13 +71,9 @@ func (os *OrderService) PlaceOrder(orderID, pizza string) {
 		Timestamp: time.Now(),
 		Data: OrderAcceptedEvent{
 			OrderID: orderID,
+			Pizza:   pizza,
 			Status:  "Order Accepted",
 		},
 	}
-	os.PrintEvent(acceptedEvent)
 	os.eventBus.Publish(acceptedEvent)
-}
-
-func (os *OrderService) PrintEvent(event eventbus.Event) {
-	fmt.Printf("Publish Event: %s\n", event.Type)
 }

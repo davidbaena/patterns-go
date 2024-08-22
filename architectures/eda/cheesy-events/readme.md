@@ -45,7 +45,7 @@ sequenceDiagram
     Customer->>OrdersService: Place Order
     OrdersService->>OrderTrackingService: OrderPlaced
     OrdersService->>OrderTrackingService: OrderAccepted
-    OrdersService->>KitchenService: OrderPlaced
+    OrdersService->>KitchenService: OrderAccepted
     KitchenService->>OrderTrackingService: PizzaBeingPrepared
     KitchenService->>OrderTrackingService: PizzaPrepared
     KitchenService->>DeliveryService: PizzaPrepared
