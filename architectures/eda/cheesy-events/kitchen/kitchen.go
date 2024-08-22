@@ -14,6 +14,12 @@ type PizzaPreparedEvent struct {
 	Pizza   string
 }
 
+// PizzaBeingPreparedEvent represents the event structure for pizza preparation status
+type PizzaBeingPreparedEvent struct {
+	OrderID string
+	Status  string
+}
+
 // KitchenService represents the service responsible for pizza preparation
 type KitchenService struct {
 	eventBus       *eventbus.EventBus
@@ -45,8 +51,22 @@ func (ks *KitchenService) PreparePizza(eventChan <-chan eventbus.Event) {
 		}
 
 		// Simulate pizza preparation
-		fmt.Printf("Pizza prepared: OrderID=%s, Pizza=%s\n", orderPlacedEvent.OrderID, orderPlacedEvent.Pizza)
+		fmt.Printf("Pizza being prepared: OrderID=%s, Pizza=%s\n", orderPlacedEvent.OrderID, orderPlacedEvent.Pizza)
 
+		// Create the pizza being prepared event
+		preparingEvent := eventbus.Event{
+			Type:      "PizzaBeingPrepared",
+			Timestamp: time.Now(),
+			Data: PizzaBeingPreparedEvent{
+				OrderID: orderPlacedEvent.OrderID,
+				Status:  "Pizza Being Prepared",
+			},
+		}
+		ks.PrintEvent(preparingEvent)
+		ks.eventBus.Publish(preparingEvent)
+
+		fmt.Println("Preparing pizza....")
+		time.Sleep(1 * time.Second)
 		// Create the pizza prepared event
 		event := eventbus.Event{
 			Type:      "PizzaPrepared",
@@ -57,8 +77,6 @@ func (ks *KitchenService) PreparePizza(eventChan <-chan eventbus.Event) {
 			},
 		}
 		ks.PrintEvent(event)
-
-		// Publish the event
 		ks.eventBus.Publish(event)
 
 		// Increment the number of pizzas prepared

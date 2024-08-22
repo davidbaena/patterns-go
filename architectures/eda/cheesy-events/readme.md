@@ -27,3 +27,29 @@
 3. **Pizza Delivery**:
     - The `DeliveryService` listens for `PizzaPrepared` events.
     - Upon receiving the event, it delivers the pizza to the customer.
+
+### Desired feature:
+Feature: Real-time Order Tracking
+- Order Tracking
+Description: Allow customers to track the status of their order in real-time.
+Implementation: Publish events like OrderAccepted, PizzaBeingPrepared, OutForDelivery, and Delivered.
+
+```mermaid
+sequenceDiagram
+    participant Customer
+    participant OrdersService
+    participant KitchenService
+    participant DeliveryService
+    participant OrderTrackingService
+
+    Customer->>OrdersService: Place Order
+    OrdersService->>OrderTrackingService: OrderPlaced
+    OrdersService->>OrderTrackingService: OrderAccepted
+    OrdersService->>KitchenService: OrderPlaced
+    KitchenService->>OrderTrackingService: PizzaBeingPrepared
+    KitchenService->>OrderTrackingService: PizzaPrepared
+    KitchenService->>DeliveryService: PizzaPrepared
+    DeliveryService->>OrderTrackingService: OutForDelivery
+    DeliveryService->>OrderTrackingService: Delivered
+    DeliveryService->>Customer: Pizza Delivered
+```

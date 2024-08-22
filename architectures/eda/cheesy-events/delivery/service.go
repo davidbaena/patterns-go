@@ -14,6 +14,18 @@ type PizzaDeliveredEvent struct {
 	Pizza   string
 }
 
+// OutForDeliveryEvent represents the event structure for out for delivery status
+type OutForDeliveryEvent struct {
+	OrderID string
+	Status  string
+}
+
+// DeliveredEvent represents the event structure for delivered status
+type DeliveredEvent struct {
+	OrderID string
+	Status  string
+}
+
 // DeliveryService represents the service responsible for pizza delivery
 type DeliveryService struct {
 	eventBus *eventbus.EventBus
@@ -35,19 +47,32 @@ func (ds *DeliveryService) DeliverPizza(eventChan <-chan eventbus.Event) {
 			continue
 		}
 
-		// Simulate pizza delivery
-		fmt.Printf("Pizza delivered: OrderID=%s, Pizza=%s\n", pizzaPreparedEvent.OrderID, pizzaPreparedEvent.Pizza)
-
-		deliveryInProgressEvent := eventbus.Event{
-			Type:      "PizzaPrepared",
+		// Create the out for delivery event
+		outForDeliveryEvent := eventbus.Event{
+			Type:      "OutForDelivery",
 			Timestamp: time.Now(),
-			Data: PizzaDeliveredEvent{
+			Data: OutForDeliveryEvent{
 				OrderID: pizzaPreparedEvent.OrderID,
-				Pizza:   pizzaPreparedEvent.Pizza,
+				Status:  "Out For Delivery",
 			},
 		}
+		ds.PrintEvent(outForDeliveryEvent)
+		ds.eventBus.Publish(outForDeliveryEvent)
 
-		ds.PrintEvent(deliveryInProgressEvent)
+		fmt.Println("Delivering pizza....")
+		time.Sleep(1 * time.Second)
+
+		// Create the delivered event
+		deliveredEvent := eventbus.Event{
+			Type:      "Delivered",
+			Timestamp: time.Now(),
+			Data: DeliveredEvent{
+				OrderID: pizzaPreparedEvent.OrderID,
+				Status:  "Delivered",
+			},
+		}
+		ds.PrintEvent(deliveredEvent)
+		ds.eventBus.Publish(deliveredEvent)
 	}
 }
 

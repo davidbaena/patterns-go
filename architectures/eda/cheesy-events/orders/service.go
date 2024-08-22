@@ -19,6 +19,12 @@ func NewOrderService(eventBus *eventbus.EventBus) *OrderService {
 	}
 }
 
+// OrderAcceptedEvent represents the event structure for order acceptance
+type OrderAcceptedEvent struct {
+	OrderID string
+	Status  string
+}
+
 // OrderPlacedEvent represents the event structure for order placement
 type OrderPlacedEvent struct {
 	OrderID string
@@ -43,6 +49,21 @@ func (os *OrderService) PlaceOrder(orderID, pizza string) {
 
 	// Publish the event
 	os.eventBus.Publish(event)
+
+	fmt.Printf("Checking Fraud system....: %s\n", event.Type)
+	time.Sleep(1 * time.Second)
+
+	// Simulate order acceptance
+	acceptedEvent := eventbus.Event{
+		Type:      "OrderAccepted",
+		Timestamp: time.Now(),
+		Data: OrderAcceptedEvent{
+			OrderID: orderID,
+			Status:  "Order Accepted",
+		},
+	}
+	os.PrintEvent(acceptedEvent)
+	os.eventBus.Publish(acceptedEvent)
 }
 
 func (os *OrderService) PrintEvent(event eventbus.Event) {
