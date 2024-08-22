@@ -75,20 +75,27 @@ if __name__ == '__main__':
 
     # load dataset_main_metrics.csv to compare the metrics
     df_main = pd.read_csv('./code-metrics/dataset_main_metrics.csv')
+
     # Merge the two dataframes and apply the operation subtract to diff the metrics
-    merged_df = pd.merge(df_main, df, on='file', suffixes=('_main', '_pr'))
+    merged_df = pd.merge(df, df_main, on='file', how='left',suffixes=('_main', '_pr'))
+
+    # Fill NaN values with 0
+    merged_df = merged_df.fillna(0)
+
     # Calculate the difference between the metrics
-    merged_df['methods_diff'] = merged_df['number-of-methods-in-file_pr'] - merged_df[
-        'number-of-methods-in-file_main']
-    merged_df['sloc_diff'] = merged_df['sloc-in-file_pr'] - merged_df['sloc-in-file_main']
+    merged_df['methods_diff'] = merged_df['number-of-methods-in-file_main'] - merged_df[
+        'number-of-methods-in-file_pr']
+    #flipped the order of the subtraction to get the correct diff
+
+    merged_df['sloc_diff'] = merged_df['sloc-in-file_main'] - merged_df['sloc-in-file_pr']
     merged_df['louvain_diff'] = merged_df[
-                                                                                    'file_result_dependency_graph_louvain-modularity-in-file_pr'] - \
+                                                                                    'file_result_dependency_graph_louvain-modularity-in-file_main'] - \
                                                                                 merged_df[
-                                                                                    'file_result_dependency_graph_louvain-modularity-in-file_main']
-    merged_df['fan_in_diff'] = merged_df['fan-in-dependency-graph_pr'] - merged_df[
-        'fan-in-dependency-graph_main']
-    merged_df['fan_out_diff'] = merged_df['fan-out-dependency-graph_pr'] - merged_df[
-        'fan-out-dependency-graph_main']
+                                                                                    'file_result_dependency_graph_louvain-modularity-in-file_pr']
+    merged_df['fan_in_diff'] = merged_df['fan-in-dependency-graph_main'] - merged_df[
+        'fan-in-dependency-graph_pr']
+    merged_df['fan_out_diff'] = merged_df['fan-out-dependency-graph_main'] - merged_df[
+        'fan-out-dependency-graph_pr']
 
     # save the merged dataframe to a csv file
     merged_df[['file',
