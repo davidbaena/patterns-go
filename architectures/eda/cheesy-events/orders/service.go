@@ -46,5 +46,5 @@ func (os *OrderService) PlaceOrder(orderID, pizza string) {
 }
 
 func (os *OrderService) PrintEvent(event eventbus.Event) {
-	fmt.Printf("Event: %s\n", event.Type)
+	fmt.Printf("Publish Event: %s\n", event.Type)
 }

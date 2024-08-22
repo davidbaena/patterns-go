@@ -56,6 +56,7 @@ func (ks *KitchenService) PreparePizza(eventChan <-chan eventbus.Event) {
 				Pizza:   orderPlacedEvent.Pizza,
 			},
 		}
+		ks.PrintEvent(event)
 
 		// Publish the event
 		ks.eventBus.Publish(event)
@@ -63,4 +64,8 @@ func (ks *KitchenService) PreparePizza(eventChan <-chan eventbus.Event) {
 		// Increment the number of pizzas prepared
 		ks.pizzasPrepared++
 	}
+}
+
+func (ks *KitchenService) PrintEvent(event eventbus.Event) {
+	fmt.Printf("Publish Event: %s\n", event.Type)
 }
