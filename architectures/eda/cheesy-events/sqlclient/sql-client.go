@@ -24,6 +24,10 @@ func NewSqClient() *SQLClient {
 	if err != nil {
 		log.Fatal(err)
 	}
+	err = db.Ping()
+	if err != nil {
+		log.Panic(err)
+	}
 
 	createTable := `CREATE TABLE IF NOT EXISTS pizzas (
 		id SERIAL PRIMARY KEY,
