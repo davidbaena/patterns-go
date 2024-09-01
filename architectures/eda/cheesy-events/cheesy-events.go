@@ -1,6 +1,7 @@
 package main
 
 import (
+	"cheesy-events/sqlclient"
 	"cheesy-events/tracking"
 	"time"
 
@@ -16,14 +17,15 @@ func main() {
 
 	// Create the services
 	orderService := orders.NewOrderService(eventBus)
-	kitchen.NewKitchenService(eventBus, 2)
+	sql := sqlclient.NewSqClient()
+	kitchen.NewKitchenService(eventBus, sql, 2)
 	delivery.NewDeliveryService(eventBus)
 	tracking.NewOrderTrackingService(eventBus)
 
 	// Place an order
 	orderService.PlaceOrder("1", "Margherita")
-	//orderService.PlaceOrder("2", "BBQ Chicken")
-	//orderService.PlaceOrder("3", "Pepperoni")
+	orderService.PlaceOrder("2", "BBQ Chicken")
+	orderService.PlaceOrder("3", "Pepperoni")
 	//orderService.PlaceOrder("4", "Vegetarian")
 
 	time.Sleep(2 * time.Second)

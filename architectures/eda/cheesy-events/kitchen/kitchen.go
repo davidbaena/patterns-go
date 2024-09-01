@@ -1,6 +1,7 @@
 package kitchen
 
 import (
+	"cheesy-events/sqlclient"
 	"cheesy-events/utils/logrus"
 	log "github.com/sirupsen/logrus"
 	"time"
@@ -28,16 +29,18 @@ type KitchenService struct {
 	eventBus       *eventbus.EventBus
 	pizzasPrepared int
 	maxPizzas      int
+	sqClient       *sqlclient.SQLClient
 }
 
 // NewKitchenService creates a new instance of the kitchen service
-func NewKitchenService(eventBus *eventbus.EventBus, maxPizzas int) *KitchenService {
+func NewKitchenService(eventBus *eventbus.EventBus, sqClient *sqlclient.SQLClient, maxPizzas int) *KitchenService {
 	orderAcceptedChan := make(chan eventbus.Event)
 	eventBus.Subscribe("OrderAccepted", orderAcceptedChan)
 
 	ks := &KitchenService{
 		eventBus:  eventBus,
 		maxPizzas: maxPizzas,
+		sqClient:  sqClient,
 	}
 	go ks.subscribe(orderAcceptedChan)
 
@@ -82,6 +85,7 @@ func (ks *KitchenService) onOrderAccepted(orderAcceptedEvent orders.OrderAccepte
 
 	time.Sleep(1 * time.Second)
 	// Create the pizza prepared event
+
 	event := eventbus.Event{
 		Type:      "PizzaPrepared",
 		Timestamp: time.Now(),
