@@ -1,12 +1,14 @@
 package main
 
 import (
+	"cheesy-events/kitchen/adapter"
+	"cheesy-events/kitchen/domain"
+	"cheesy-events/kitchen/handler"
 	"cheesy-events/tracking"
 	"time"
 
 	"cheesy-events/delivery"
 	"cheesy-events/eventbus"
-	"cheesy-events/kitchen"
 	"cheesy-events/orders"
 )
 
@@ -16,7 +18,15 @@ func main() {
 
 	// Create the services
 	orderService := orders.NewOrderService(eventBus)
-	kitchen.NewKitchenService(eventBus, 2)
+	//sql := sqlclient.NewSqClient()
+	//repository := adapter.NewPizzaRepository(sql)
+
+	repository := adapter.NewRepositoryDummy()
+	producer := adapter.NewProducer(eventBus)
+
+	kitchenService := domain.NewKitchenService(producer, &repository, 2)
+
+	handler.NewEventHandler(eventBus, kitchenService)
 	delivery.NewDeliveryService(eventBus)
 	tracking.NewOrderTrackingService(eventBus)
 

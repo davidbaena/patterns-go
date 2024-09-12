@@ -3,7 +3,7 @@ package tracking
 import (
 	"cheesy-events/delivery"
 	"cheesy-events/eventbus"
-	"cheesy-events/kitchen"
+	"cheesy-events/kitchen/adapter"
 	"cheesy-events/orders"
 	"cheesy-events/utils/logrus"
 	log "github.com/sirupsen/logrus"
@@ -60,11 +60,11 @@ func (ots *OrderTrackingService) onOrderAccepted(orderAcceptedEvent orders.Order
 	}).Info("Order accepted")
 }
 
-func (ots *OrderTrackingService) onPizzaBeingPrepared(pizzaBeingPreparedEvent kitchen.PizzaBeingPreparedEvent) {
+func (ots *OrderTrackingService) onPizzaBeingPrepared(pizzaBeingPreparedEvent adapter.PizzaBeingPreparedEvent) {
 	logger.WithFields(log.Fields{
 		"order_id": pizzaBeingPreparedEvent.OrderID,
 		"Status":   pizzaBeingPreparedEvent.Status,
-	}).Info("Pizza being prepared")
+	}).Info("PizzaName being prepared")
 }
 
 func (ots *OrderTrackingService) onOutForDelivery(outForDeliveryEvent delivery.OutForDeliveryEvent) {
@@ -89,7 +89,7 @@ func (ots *OrderTrackingService) subscribe(eventChan <-chan eventbus.Event) {
 			ots.onOrderPlaced(e)
 		case orders.OrderAcceptedEvent:
 			ots.onOrderAccepted(e)
-		case kitchen.PizzaBeingPreparedEvent:
+		case adapter.PizzaBeingPreparedEvent:
 			ots.onPizzaBeingPrepared(e)
 		case delivery.OutForDeliveryEvent:
 			ots.onOutForDelivery(e)
