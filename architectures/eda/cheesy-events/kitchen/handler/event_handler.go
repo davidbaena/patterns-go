@@ -14,8 +14,8 @@ type EventHandler struct {
 	kitchenService domain.KitchenService
 }
 
-func NewEventHandler(eventBus *eventbus.EventBus, kitchenService domain.KitchenService) *EventHandler {
-	handler := &EventHandler{
+func NewEventHandler(eventBus *eventbus.EventBus, kitchenService domain.KitchenService) EventHandler {
+	handler := EventHandler{
 		eventBus:       eventBus,
 		kitchenService: kitchenService,
 	}

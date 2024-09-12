@@ -27,20 +27,6 @@ func NewProducer(eventBus *eventbus.EventBus) Producer {
 }
 
 func (p Producer) SendPizzaBeingPrepared(pizza domain.Pizza) {
-	data := PizzaPreparedEvent{
-		OrderID: pizza.OrderId,
-		Pizza:   pizza.Name,
-	}
-
-	event := eventbus.Event{
-		Type:      "PizzaPreparedEvent",
-		Timestamp: time.Now(),
-		Data:      data,
-	}
-	p.eventBus.Publish(event)
-}
-
-func (p Producer) SendPizzaPrepared(pizza domain.Pizza) {
 	data := PizzaBeingPreparedEvent{
 		OrderID: pizza.OrderId,
 		Status:  string(pizza.Status),
@@ -48,6 +34,21 @@ func (p Producer) SendPizzaPrepared(pizza domain.Pizza) {
 
 	event := eventbus.Event{
 		Type:      "PizzaBeingPreparedEvent",
+		Timestamp: time.Now(),
+		Data:      data,
+	}
+	p.eventBus.Publish(event)
+}
+
+func (p Producer) SendPizzaPrepared(pizza domain.Pizza) {
+
+	data := PizzaPreparedEvent{
+		OrderID: pizza.OrderId,
+		Pizza:   pizza.Name,
+	}
+
+	event := eventbus.Event{
+		Type:      "PizzaPreparedEvent",
 		Timestamp: time.Now(),
 		Data:      data,
 	}
