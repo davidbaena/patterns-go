@@ -1,29 +1,36 @@
 package main
 
 import (
+	"cheesy-events/client"
 	deliveryDi "cheesy-events/delivery/di"
 	kitchenDi "cheesy-events/kitchen/di"
+	ordersDi "cheesy-events/orders/di"
 	"time"
 
 	"cheesy-events/eventbus"
-	"cheesy-events/orders"
 )
 
 func main() {
 	// Create a new event bus
 	eventBus := eventbus.NewEventBus()
 
-	// Create the services
-	orderService := orders.NewOrderService(eventBus)
-
 	kitchenDi.ProvideKitchenHandler(eventBus)
 	deliveryDi.ProvideDeliveryHandler(eventBus)
+	ordersDi.ProvideOrderHandler(eventBus)
 
 	// Place an order
-	orderService.PlaceOrder("1", "Margherita")
-	//orderService.PlaceOrder("2", "BBQ Chicken")
-	//orderService.PlaceOrder("3", "Pepperoni")
-	//orderService.PlaceOrder("4", "Vegetarian")
+	newClient := client.NewClient(eventBus)
+
+	tryOrder := client.TryOrder{
+		OrderID: "123",
+		Pizza:   "Cheese Pizza",
+		Customer: client.Customer{
+			Name:  "John Doe",
+			Phone: "1234567890",
+		},
+	}
+
+	newClient.SendOrderPlaced(tryOrder)
 
 	time.Sleep(100 * time.Second)
 }

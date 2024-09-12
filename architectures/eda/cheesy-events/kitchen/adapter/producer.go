@@ -8,6 +8,7 @@ import (
 
 // PizzaPreparedEvent represents the event structure for pizza preparation
 type PizzaPreparedEvent struct {
+	eventbus.Event
 	OrderID string
 	Pizza   string
 }
