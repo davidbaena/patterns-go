@@ -3,7 +3,7 @@ package handler
 import (
 	"cheesy-events/eventbus"
 	"cheesy-events/kitchen/domain"
-	"cheesy-events/orders"
+	"cheesy-events/orders/adapter"
 	"cheesy-events/utils/logrus"
 )
 
@@ -27,7 +27,7 @@ func NewEventHandler(eventBus *eventbus.EventBus, kitchenService domain.KitchenS
 
 func (h *EventHandler) subscribe(eventChan <-chan eventbus.Event) {
 	for event := range eventChan {
-		orderAcceptedEvent, ok := event.Data.(orders.OrderAcceptedEvent)
+		orderAcceptedEvent, ok := event.Data.(adapter.OrderAcceptedEvent)
 		if !ok {
 			logger.Error("Invalid event data")
 			continue
