@@ -20,8 +20,11 @@ func main() {
 	// Create the services
 	orderService := orders.NewOrderService(eventBus)
 	sql := sqlclient.NewSqClient()
+	repository := adapter.NewPizzaRepository(sql)
 	producer := adapter.NewProducer(eventBus)
-	kitchenService := domain.NewKitchenService(producer, sql, 2)
+
+	kitchenService := domain.NewKitchenService(producer, repository, 2)
+
 	handler.NewEventHandler(eventBus, kitchenService)
 	delivery.NewDeliveryService(eventBus)
 	tracking.NewOrderTrackingService(eventBus)

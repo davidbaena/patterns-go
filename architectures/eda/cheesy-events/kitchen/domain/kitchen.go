@@ -1,8 +1,6 @@
 package domain
 
 import (
-	"cheesy-events/kitchen/adapter"
-	"cheesy-events/sqlclient"
 	"cheesy-events/utils/logrus"
 	log "github.com/sirupsen/logrus"
 	"time"
@@ -10,32 +8,34 @@ import (
 	"cheesy-events/orders"
 )
 
+// PizzaRepository defines the methods for managing pizzas
+type PizzaRepository interface {
+	CreatePizza(pizza Pizza) (int64, error)
+	GetPizza(id int) (Pizza, error)
+	UpdatePizza(pizza Pizza) error
+	DeletePizza(id int) error
+}
+
+// Create an interface for the producer
+type Producer interface {
+	SendPizzaBeingPrepared(pizza Pizza)
+	SendPizzaPrepared(pizza Pizza)
+}
+
 var logger = logrus.NewLogger("KitchenService")
 
-// PizzaPreparedEvent represents the event structure for pizza preparation
-type PizzaPreparedEvent struct {
-	OrderID string
-	Pizza   string
-}
-
-// PizzaBeingPreparedEvent represents the event structure for pizza preparation status
-type PizzaBeingPreparedEvent struct {
-	OrderID string
-	Status  string
-}
-
 type KitchenService struct {
-	producer       adapter.Producer
+	producer       Producer
 	pizzasPrepared int
 	maxPizzas      int
-	sqClient       sqlclient.SQLClient
+	repository     PizzaRepository
 }
 
-func NewKitchenService(producer adapter.Producer, sqClient sqlclient.SQLClient, maxPizzas int) KitchenService {
+func NewKitchenService(producer Producer, repository PizzaRepository, maxPizzas int) KitchenService {
 	return KitchenService{
-		producer:  producer,
-		maxPizzas: maxPizzas,
-		sqClient:  sqClient,
+		producer:   producer,
+		maxPizzas:  maxPizzas,
+		repository: repository,
 	}
 }
 
@@ -45,29 +45,37 @@ func (ks *KitchenService) PreparePizza(orderAcceptedEvent orders.OrderAcceptedEv
 		return
 	}
 
-	preparingEvent := PizzaBeingPreparedEvent{
-		OrderID: orderAcceptedEvent.OrderID,
-		Status:  "Pizza Being Prepared",
+	pizza := Pizza{
+		OrderId: orderAcceptedEvent.OrderID,
+		Name:    orderAcceptedEvent.Pizza,
+		Status:  CollectingIngredients,
 	}
-	ks.producer.ProduceEvent("PizzaBeingPrepared", preparingEvent)
 
 	logger.WithFields(log.Fields{
-		"order_id": orderAcceptedEvent.OrderID,
-		"pizza":    orderAcceptedEvent.Pizza,
+		"order_id": pizza.OrderId,
+		"pizza":    pizza.Name,
+	}).Info("Collecting Ingredients...")
+
+	pizza.nextState()
+
+	ks.producer.SendPizzaBeingPrepared(pizza)
+
+	logger.WithFields(log.Fields{
+		"order_id": pizza.OrderId,
+		"pizza":    pizza.Name,
 	}).Info("Preparing pizza...")
 
 	time.Sleep(1 * time.Second)
 
-	preparedEvent := PizzaPreparedEvent{
-		OrderID: orderAcceptedEvent.OrderID,
-		Pizza:   orderAcceptedEvent.Pizza,
-	}
-	logger.WithFields(log.Fields{
-		"order_id": orderAcceptedEvent.OrderID,
-		"pizza":    orderAcceptedEvent.Pizza,
-	}).Info("Pizza prepared")
+	pizza.nextState()
 
-	ks.producer.ProduceEvent("PizzaPrepared", preparedEvent)
+	logger.WithFields(log.Fields{
+		"order_id": pizza.OrderId,
+		"pizza":    pizza.Name,
+		"status":   pizza.Status,
+	}).Info("PizzaName prepared")
+
+	ks.producer.SendPizzaPrepared(pizza)
 
 	ks.pizzasPrepared++
 }

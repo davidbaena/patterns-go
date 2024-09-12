@@ -2,14 +2,15 @@ package sqlclient
 
 import (
 	"database/sql"
+	"errors"
 	_ "github.com/lib/pq"
 )
 
 type Pizza struct {
-	ID      int    `json:"id"`
-	OrderID string `json:"order_id"`
-	Pizza   string `json:"pizza"`
-	Status  string `json:"status"`
+	ID        string `json:"id"`
+	OrderID   string `json:"order_id"`
+	PizzaName string `json:"pizza"`
+	Status    string `json:"status"`
 }
 
 type SQLClient struct {
@@ -45,7 +46,7 @@ func NewSqClient() SQLClient {
 
 // CreatePizza inserts a new pizza record into the database
 func (s *SQLClient) CreatePizza(pizza Pizza) (int64, error) {
-	result, err := s.db.Exec("INSERT INTO pizzas (order_id, pizza, status) VALUES ($1, $2, $3)", pizza.OrderID, pizza.Pizza, pizza.Status)
+	result, err := s.db.Exec("INSERT INTO pizzas (order_id, pizza, status) VALUES ($1, $2, $3)", pizza.OrderID, pizza.PizzaName, pizza.Status)
 	if err != nil {
 		return 0, err
 	}
@@ -56,9 +57,9 @@ func (s *SQLClient) CreatePizza(pizza Pizza) (int64, error) {
 func (s *SQLClient) GetPizza(id int) (*Pizza, error) {
 	row := s.db.QueryRow("SELECT id, order_id, pizza, status FROM pizzas WHERE id = $1", id)
 	var pizza Pizza
-	err := row.Scan(&pizza.ID, &pizza.OrderID, &pizza.Pizza, &pizza.Status)
+	err := row.Scan(&pizza.ID, &pizza.OrderID, &pizza.PizzaName, &pizza.Status)
 	if err != nil {
-		if err == sql.ErrNoRows {
+		if errors.Is(err, sql.ErrNoRows) {
 			return nil, nil
 		}
 		return nil, err
@@ -68,7 +69,7 @@ func (s *SQLClient) GetPizza(id int) (*Pizza, error) {
 
 // UpdatePizza updates an existing pizza record
 func (s *SQLClient) UpdatePizza(pizza Pizza) error {
-	_, err := s.db.Exec("UPDATE pizzas SET order_id = $1, pizza = $2, status = $3 WHERE id = $4", pizza.OrderID, pizza.Pizza, pizza.Status, pizza.ID)
+	_, err := s.db.Exec("UPDATE pizzas SET order_id = $1, pizza = $2, status = $3 WHERE id = $4", pizza.OrderID, pizza.PizzaName, pizza.Status, pizza.ID)
 	return err
 }
 
