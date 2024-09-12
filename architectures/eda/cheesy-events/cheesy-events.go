@@ -4,7 +4,6 @@ import (
 	"cheesy-events/kitchen/adapter"
 	"cheesy-events/kitchen/domain"
 	"cheesy-events/kitchen/handler"
-	"cheesy-events/sqlclient"
 	"cheesy-events/tracking"
 	"time"
 
@@ -19,11 +18,13 @@ func main() {
 
 	// Create the services
 	orderService := orders.NewOrderService(eventBus)
-	sql := sqlclient.NewSqClient()
-	repository := adapter.NewPizzaRepository(sql)
+	//sql := sqlclient.NewSqClient()
+	//repository := adapter.NewPizzaRepository(sql)
+
+	repository := adapter.NewRepositoryDummy()
 	producer := adapter.NewProducer(eventBus)
 
-	kitchenService := domain.NewKitchenService(producer, repository, 2)
+	kitchenService := domain.NewKitchenService(producer, &repository, 2)
 
 	handler.NewEventHandler(eventBus, kitchenService)
 	delivery.NewDeliveryService(eventBus)
@@ -31,8 +32,8 @@ func main() {
 
 	// Place an order
 	orderService.PlaceOrder("1", "Margherita")
-	orderService.PlaceOrder("2", "BBQ Chicken")
-	orderService.PlaceOrder("3", "Pepperoni")
+	//orderService.PlaceOrder("2", "BBQ Chicken")
+	//orderService.PlaceOrder("3", "Pepperoni")
 	//orderService.PlaceOrder("4", "Vegetarian")
 
 	time.Sleep(2 * time.Second)

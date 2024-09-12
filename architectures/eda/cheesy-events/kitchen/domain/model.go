@@ -10,6 +10,7 @@ type Pizza struct {
 type Status string
 
 const (
+	OrderReceived         Status = "OrderReceived"
 	CollectingIngredients Status = "CollectingIngredients"
 	OvenBaking            Status = "OvenBaking"
 	Prepared              Status = "Prepared"
@@ -17,6 +18,8 @@ const (
 
 func (p *Pizza) nextState() {
 	switch p.Status {
+	case OrderReceived:
+		p.Status = CollectingIngredients
 	case CollectingIngredients:
 		p.Status = OvenBaking
 	case OvenBaking:

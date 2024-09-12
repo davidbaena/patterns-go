@@ -4,11 +4,8 @@ import (
 	"cheesy-events/utils/logrus"
 	log "github.com/sirupsen/logrus"
 	"time"
-
-	"cheesy-events/orders"
 )
 
-// PizzaRepository defines the methods for managing pizzas
 type PizzaRepository interface {
 	CreatePizza(pizza Pizza) (int64, error)
 	GetPizza(id int) (Pizza, error)
@@ -16,7 +13,6 @@ type PizzaRepository interface {
 	DeletePizza(id int) error
 }
 
-// Create an interface for the producer
 type Producer interface {
 	SendPizzaBeingPrepared(pizza Pizza)
 	SendPizzaPrepared(pizza Pizza)
@@ -26,29 +22,43 @@ var logger = logrus.NewLogger("KitchenService")
 
 type KitchenService struct {
 	producer       Producer
+	repository     PizzaRepository
 	pizzasPrepared int
 	maxPizzas      int
-	repository     PizzaRepository
 }
 
 func NewKitchenService(producer Producer, repository PizzaRepository, maxPizzas int) KitchenService {
 	return KitchenService{
 		producer:   producer,
-		maxPizzas:  maxPizzas,
 		repository: repository,
+		maxPizzas:  maxPizzas,
 	}
 }
 
-func (ks *KitchenService) PreparePizza(orderAcceptedEvent orders.OrderAcceptedEvent) {
+func (ks KitchenService) PreparePizza(pizza Pizza) {
 	if ks.pizzasPrepared >= ks.maxPizzas {
 		logger.Error("Maximum number of pizzas prepared. Cannot prepare more.")
 		return
 	}
 
-	pizza := Pizza{
-		OrderId: orderAcceptedEvent.OrderID,
-		Name:    orderAcceptedEvent.Pizza,
-		Status:  CollectingIngredients,
+	// 1 - Persist the pizza
+	if _, err := ks.repository.CreatePizza(pizza); err != nil {
+		logger.WithFields(log.Fields{
+			"order_id": pizza.OrderId,
+			"pizza":    pizza.Name,
+			"error":    err,
+		}).Error("Failed to store pizza")
+		return
+	}
+
+	pizza.nextState() // to CollectingIngredients
+	if err := ks.repository.UpdatePizza(pizza); err != nil {
+		logger.WithFields(log.Fields{
+			"order_id": pizza.OrderId,
+			"pizza":    pizza.Name,
+			"error":    err,
+		}).Error("Failed to update pizza")
+		return
 	}
 
 	logger.WithFields(log.Fields{
@@ -56,8 +66,18 @@ func (ks *KitchenService) PreparePizza(orderAcceptedEvent orders.OrderAcceptedEv
 		"pizza":    pizza.Name,
 	}).Info("Collecting Ingredients...")
 
-	pizza.nextState()
+	pizza.nextState() // to OvenBaking
 
+	if err := ks.repository.UpdatePizza(pizza); err != nil {
+		logger.WithFields(log.Fields{
+			"order_id": pizza.OrderId,
+			"pizza":    pizza.Name,
+			"error":    err,
+		}).Error("Failed to update pizza")
+		return
+	}
+
+	// 2 - Send the pizza being prepared event
 	ks.producer.SendPizzaBeingPrepared(pizza)
 
 	logger.WithFields(log.Fields{
@@ -67,7 +87,16 @@ func (ks *KitchenService) PreparePizza(orderAcceptedEvent orders.OrderAcceptedEv
 
 	time.Sleep(1 * time.Second)
 
-	pizza.nextState()
+	// 3 - Pizza prepared
+	pizza.nextState() //PizzaPrepared
+	if err := ks.repository.UpdatePizza(pizza); err != nil {
+		logger.WithFields(log.Fields{
+			"order_id": pizza.OrderId,
+			"pizza":    pizza.Name,
+			"error":    err,
+		}).Error("Failed to update pizza")
+		return
+	}
 
 	logger.WithFields(log.Fields{
 		"order_id": pizza.OrderId,

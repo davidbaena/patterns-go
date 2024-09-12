@@ -32,6 +32,12 @@ func (h *EventHandler) subscribe(eventChan <-chan eventbus.Event) {
 			logger.Error("Invalid event data")
 			continue
 		}
-		h.kitchenService.PreparePizza(orderAcceptedEvent)
+
+		pizza := domain.Pizza{
+			OrderId: orderAcceptedEvent.OrderID,
+			Name:    orderAcceptedEvent.Pizza,
+			Status:  domain.OrderReceived,
+		}
+		h.kitchenService.PreparePizza(pizza)
 	}
 }
