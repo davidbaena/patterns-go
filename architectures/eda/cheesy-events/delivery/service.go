@@ -1,12 +1,12 @@
 package delivery
 
 import (
+	"cheesy-events/kitchen/domain"
 	"cheesy-events/utils/logrus"
 	log "github.com/sirupsen/logrus"
 	"time"
 
 	"cheesy-events/eventbus"
-	"cheesy-events/kitchen"
 )
 
 var logger = logrus.NewLogger("kitchen")
@@ -42,7 +42,7 @@ func NewDeliveryService(eventBus *eventbus.EventBus) *DeliveryService {
 	return ds
 }
 
-func (ds *DeliveryService) onPizzaPrepared(pizzaPreparedEvent kitchen.PizzaPreparedEvent) {
+func (ds *DeliveryService) onPizzaPrepared(pizzaPreparedEvent domain.PizzaPreparedEvent) {
 	// Create the out for delivery event
 	outForDeliveryEvent := eventbus.Event{
 		Type:      "OutForDelivery",
@@ -79,7 +79,7 @@ func (ds *DeliveryService) onPizzaPrepared(pizzaPreparedEvent kitchen.PizzaPrepa
 // subscribe delivers a pizza when a pizza prepared event is received
 func (ds *DeliveryService) subscribe(eventChan <-chan eventbus.Event) {
 	for event := range eventChan {
-		pizzaPreparedEvent, ok := event.Data.(kitchen.PizzaPreparedEvent)
+		pizzaPreparedEvent, ok := event.Data.(domain.PizzaPreparedEvent)
 		if !ok {
 			logger.Error("Invalid event data")
 			continue

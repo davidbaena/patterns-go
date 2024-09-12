@@ -2,8 +2,6 @@ package sqlclient
 
 import (
 	"database/sql"
-	"log"
-
 	_ "github.com/lib/pq"
 )
 
@@ -18,29 +16,31 @@ type SQLClient struct {
 	db *sql.DB
 }
 
-func NewSqClient() *SQLClient {
-	dataSourceName := "postgres://user:password@localhost:5432/pizzadb?sslmode=disable"
-	db, err := sql.Open("postgres", dataSourceName)
-	if err != nil {
-		log.Fatal(err)
-	}
-	err = db.Ping()
-	if err != nil {
-		log.Panic(err)
-	}
+func NewSqClient() SQLClient {
+	/*
+		dataSourceName := "postgres://user:password@localhost:5432/pizzadb?sslmode=disable"
+		db, err := sql.Open("postgres", dataSourceName)
+		if err != nil {
+			log.Fatal(err)
+		}
+		err = db.Ping()
+		if err != nil {
+			log.Panic(err)
+		}
 
-	createTable := `CREATE TABLE IF NOT EXISTS pizzas (
-		id SERIAL PRIMARY KEY,
-		order_id TEXT,
-		pizza TEXT,
-		status TEXT
-	);`
+		createTable := `CREATE TABLE IF NOT EXISTS pizzas (
+			id SERIAL PRIMARY KEY,
+			order_id TEXT,
+			pizza TEXT,
+			status TEXT
+		);`
 
-	_, err = db.Exec(createTable)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return &SQLClient{db: db}
+		_, err = db.Exec(createTable)
+		if err != nil {
+			log.Fatal(err)
+		}
+	*/
+	return SQLClient{}
 }
 
 // CreatePizza inserts a new pizza record into the database
