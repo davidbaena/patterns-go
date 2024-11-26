@@ -1,28 +1,12 @@
-### Step 2: Break Down the Task
-- "List the main components or sub-tasks needed to complete the task."
-- "For each sub-task, describe what needs to be done and any dependencies it might have."
-
-Example:
-### Breaking Down the Task: Book Search Feature
-
-**Main Components and Sub-Tasks:**
-
-1. **Update the Book Model**
-   - **Description:** Add attributes for title, author, and genre to the book model.
-   - **Dependencies:** Ensure the database schema is updated to reflect these changes.
-
-2. **Modify the Database Schema**
-   - **Description:** Update the database to include columns for title, author, and genre in the books table.
-   - **Dependencies:** Coordinate with the database administrator to apply schema changes.
-
-3. **Implement Backend Search Logic**
-   - **Description:** Develop the backend logic to handle search queries by title, author, and genre.
-   - **Dependencies:** Ensure the backend can efficiently query the database and return results.
-
-4. **Create Search API Endpoints**
-   - **Description:** Develop API endpoints to accept search requests and return search results.
-   - **Dependencies:** Ensure the API endpoints are secure and follow RESTful principles.
-
-5. **Update the User Interface**
-   - **Description:** Modify the book listing page to include search input fields for title, author, and genre.
-   - **Dependencies:** Ensure the UI changes are responsive and user-friendly.
+Given this task description:<br>"""
+*Task Description:*
+Book Search Feature
+*Objective:*
+Enhance the user experience by implementing a robust book search functionality that allows users to easily find books based on their preferences.
+*Requirements:*
+Search Functionality:
+- Users should be able to search for books by title.
+- Users should be able to search for books by author.
+- Users should be able to search for books by genre.
+  Expected Outcomes:
+- Users can quickly and easily find books by searching for specific titles, authors, or genres.<br>"""<br>I want to create several subtask to implement the project enforcing to use hexagonal Architecture and SOLID principles and DDD.<br>Just define the subtasks and do not implement code.<br>The target is to pass to Github Copilot each subtask to implement the code in a incremental way.

@@ -58,3 +58,8 @@ Example:
 3) Design the solution for the task
 4) Implement the code for the first sub-task
 5) Test the implementation of the code
+
+### TRICKS
+- I'm going to give you a task description but I don't want to implement directly. Wait until I give you the implementation steps.
+- I want to extend the description to pass to GitHub Copilot to implement the code in Golang.the target is not to give me the code already implemented. I need to focus in the definition
+- I want to enforce to use hexagonal Architecture and SOLID principles and DDD. I want to define the subtask 3 with that requisites.
