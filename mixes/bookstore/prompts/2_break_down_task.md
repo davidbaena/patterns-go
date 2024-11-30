@@ -9,4 +9,7 @@ Search Functionality:
 - Users should be able to search for books by author.
 - Users should be able to search for books by genre.
   Expected Outcomes:
-- Users can quickly and easily find books by searching for specific titles, authors, or genres.<br>"""<br>I want to create several subtask to implement the project enforcing to use hexagonal Architecture and SOLID principles and DDD.<br>Just define the subtasks and do not implement code.<br>The target is to pass to Github Copilot each subtask to implement the code in a incremental way.
+- Users can quickly and easily find books by searching for specific titles, authors, or genres.<br>"""<br>
+- I want to create several subtask to implement the project enforcing to use hexagonal Architecture and SOLID principles and DDD.<br>
+- Just define the subtasks and do not implement code.
+- The target is to pass to Github Copilot each subtask to implement the code in a incremental way.
