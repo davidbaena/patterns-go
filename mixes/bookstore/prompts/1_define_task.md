@@ -1,13 +1,16 @@
 Step1
 
-Define Task:
-- "Describe the task you want to implement in the bookstore system, including the main goal, requirements, and constraints."
-- "What are the expected outcomes of this task? Please provide specific details."
+Define a task description for the following feature. It must satisfy these items:
+Items:
+- Clear and concise description
+- Acceptance criteria
+- Priority
+- An estimate of effort
+- Clear relationship to end-user needs.
 
-**Prompt Example:**
+Feature:
 """
-- Define a task description for the following feature. It must include the main goal, requirements, and constraints:
- **Book Search and Filtering**
-       - Users should be able to search for books by title, author, or genre.
-       - Users should be able to filter books by genre.
-"""
+User Registration and Authentication**
+- Users should be able to register with their email and password.
+- Users should be able to log in and log out securely.
+  """
