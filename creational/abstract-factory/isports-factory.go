@@ -12,6 +12,7 @@ const (
 type ISportsFactory interface {
 	CreateShoe() IShoe
 	CreateShirt() IShirt
+	CreateHat() IHat
 }
 
 func ProvideSportFactory(brand FactoryType) (ISportsFactory, error) {

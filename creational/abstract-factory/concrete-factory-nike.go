@@ -16,6 +16,13 @@ func (ConcreteFactoryNike) CreateShirt() IShirt {
 	}
 }
 
+func (ConcreteFactoryNike) CreateHat() IHat {
+	return NikeHat{
+		size:  60,
+		color: "RED",
+	}
+}
+
 type NikeShoe struct {
 	size  int
 	color string
@@ -40,4 +47,17 @@ func (nsh NikeShirt) Size() int {
 
 func (nsh NikeShirt) HasSleeves() bool {
 	return nsh.hasSlaves
+}
+
+type NikeHat struct {
+	size  int
+	color string
+}
+
+func (nh NikeHat) Size() int {
+	return nh.size
+}
+
+func (nh NikeHat) Color() string {
+	return nh.color
 }
