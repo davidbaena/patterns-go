@@ -13,6 +13,7 @@ type ISportsFactory interface {
 	CreateShoe() IShoe
 	CreateShirt() IShirt
 	CreateHat() IHat
+	CreateJacket() IJacket
 }
 
 func ProvideSportFactory(brand FactoryType) (ISportsFactory, error) {
