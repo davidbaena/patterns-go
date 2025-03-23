@@ -30,7 +30,7 @@ We will use Hexagonal Architecture to structure the Bookstore project. This invo
 Accepted
 
 ## Date
-2023-10-05
+24-03-2025
 
 ## Author
 David Baena
