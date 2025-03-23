@@ -45,3 +45,5 @@ emerge -c config.yml
 
 This repository aims to provide clear examples and explanations of design patterns and concurrency in Go. It's a great
 resource for anyone looking to deepen their understanding of Go and software design in general.
+
+###
