@@ -23,6 +23,14 @@ func (ConcreteFactoryNike) CreateHat() IHat {
 	}
 }
 
+func (ConcreteFactoryNike) CreateJacket() IJacket {
+	return NikeJacket{
+		size:          42,
+		color:         "BLUE",
+		isWatterProof: true,
+	}
+}
+
 type NikeShoe struct {
 	size  int
 	color string
@@ -60,4 +68,22 @@ func (nh NikeHat) Size() int {
 
 func (nh NikeHat) Color() string {
 	return nh.color
+}
+
+type NikeJacket struct {
+	size          int
+	color         string
+	isWatterProof bool
+}
+
+func (nj NikeJacket) Size() int {
+	return nj.size
+}
+
+func (nj NikeJacket) Color() string {
+	return nj.color
+}
+
+func (nj NikeJacket) IsWaterProof() bool {
+	return nj.isWatterProof
 }
