@@ -19,11 +19,12 @@ The system should manage book inventory, customer information, and order process
   - Admins should be able to add, update, and delete books.
   - Each book should have a title, author, genre, price, and stock quantity.
 
-**Book Search and Filtering**
+**Book Search and Filtering** 
 - **Status**: In Progress
 - **Definition**:
   - Users should be able to search for books by title, author, or genre.
   - Users should be able to filter books by genre.
+- **Doc**: [Book Search and Filtering](knowledge/search.md)
 
 **Shopping Cart**
 - **Status**: Not Started
