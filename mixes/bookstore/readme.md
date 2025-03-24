@@ -5,7 +5,7 @@
 The online bookstore allows users to browse, search, and purchase books.
 The system should manage book inventory, customer information, and order processing.
 
-#### Requirements
+#### Functional Requirements
 
 **User Registration and Authentication**
 - **Status**: Not Started
