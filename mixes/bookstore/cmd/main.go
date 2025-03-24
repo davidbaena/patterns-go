@@ -4,12 +4,12 @@ import (
 	"log"
 	"net/http"
 
-	"bookstore/bookstore"
+	"bookstore/search"
 )
 
 func main() {
 	// Initialize the bookstore application
-	bookController := bookstore.InitializeBookstore()
+	bookController := search.InitializeBookstore()
 
 	// Define API endpoints
 	http.HandleFunc("/api/books/search/title", bookController.SearchByTitle)

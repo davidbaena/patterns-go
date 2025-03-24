@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"bookstore/bookstore/domain"
+	"bookstore/search/domain"
 )
 
 type BookController struct {
