@@ -51,5 +51,3 @@
 13. **Document the API**
     - Create API documentation for the registration and login endpoints.
     - Ensure the documentation is clear and concise for end-users.
-
-These subtasks should help in implementing the user registration and authentication feature while adhering to hexagonal architecture, SOLID principles, and DDD.
