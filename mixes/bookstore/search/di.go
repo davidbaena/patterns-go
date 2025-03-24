@@ -1,9 +1,9 @@
-package bookstore
+package search
 
 import (
-	"bookstore/bookstore/app"
-	"bookstore/bookstore/domain"
-	"bookstore/bookstore/infrastructure"
+	"bookstore/search/app"
+	"bookstore/search/domain"
+	"bookstore/search/infrastructure"
 )
 
 func InitializeBookstore() *app.BookController {

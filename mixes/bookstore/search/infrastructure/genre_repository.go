@@ -3,7 +3,7 @@ package infrastructure
 import (
 	"errors"
 
-	"bookstore/bookstore/domain"
+	"bookstore/search/domain"
 )
 
 // InMemoryGenreRepository is an in-memory implementation of GenreRepository.
