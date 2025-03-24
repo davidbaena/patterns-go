@@ -1,14 +1,13 @@
-*Task Description:*
-Book Search Feature
+**Task Description:**
+Implement Book Search Feature
 
-*Objective:*
+**Objective:**
 Enhance the user experience by implementing a robust book search functionality that allows users to easily find books based on their preferences.
 
-*Requirements:*
-Search Functionality:
+**Requirements:**
 - Users should be able to search for books by title.
 - Users should be able to search for books by author.
 - Users should be able to search for books by genre.
 
-Expected Outcomes:
-- Users can quickly and easily find books by searching for specific titles, authors, or genres.
+**Acceptance Criteria:**
+- Users can successfully search for books by title, author, or genre.
