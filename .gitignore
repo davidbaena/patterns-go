@@ -8,3 +8,4 @@
 go-viz/*
 
 *.csv
+/mixes/bookstore/prompts/out/
