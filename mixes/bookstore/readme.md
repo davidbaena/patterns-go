@@ -12,6 +12,7 @@ The system should manage book inventory, customer information, and order process
 - **Definition**:
   - Users should be able to register with their email and password.
   - Users should be able to log in and log out securely.
+- **Doc**: [User Registration and Authentication](knowledge/auth.md)
 
 **Book Management**
 - **Status**: Not Started
