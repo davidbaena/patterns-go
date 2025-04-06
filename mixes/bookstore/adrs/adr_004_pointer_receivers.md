@@ -1,4 +1,3 @@
-```markdown
 # ADR-004: Use of Pointers for Mutating Functions in Bookstore Project
 
 ## Context
@@ -60,4 +59,3 @@ Accepted
 
 ## Author
 David Baena
-```
