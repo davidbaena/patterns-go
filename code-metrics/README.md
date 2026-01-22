@@ -3,7 +3,7 @@
 1) Get modified files from a pull request
 
 ```
-gh pr diff https://github.com/davidbaena/patterns-go/pull/1 --repo=davidbaena/patterns-go --name-only
+gh pr diff https://github.com/davidbaena/playground-go/pull/1 --repo=davidbaena/playground-go --name-only
 
 creational/singleton/database.go
 creational/singleton/database_test.go
@@ -12,7 +12,7 @@ creational/singleton/main.go
 ```
 
 2) Run emerge to get fan-in, fan-out, louvain metrics
-"patterns-go/creational/singleton/database.go": {
+"playground-go/creational/singleton/database.go": {
   "number-of-methods-in-file": 2,
   "sloc-in-file": 15,
   "file_result_dependency_graph_louvain-modularity-in-file": 3,

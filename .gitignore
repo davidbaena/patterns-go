@@ -1,6 +1,6 @@
 /.idea/.gitignore
 /.idea/modules.xml
-/.idea/patterns-go.iml
+/.idea/playground-go.iml
 /.idea/vcs.xml
 /config.yml
 /fixes-goviz.txt

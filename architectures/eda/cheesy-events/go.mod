@@ -1,4 +1,4 @@
-module github.com/davidbaena/patterns-go/architectures/eda/cheesy-events
+module github.com/davidbaena/playground-go/architectures/eda/cheesy-events
 
 go 1.25.3
 
