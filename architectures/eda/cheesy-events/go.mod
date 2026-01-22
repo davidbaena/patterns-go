@@ -1,10 +1,10 @@
-module cheesy-events
+module github.com/davidbaena/patterns-go/architectures/eda/cheesy-events
 
-go 1.22
+go 1.25.3
 
 require (
 	github.com/lib/pq v1.10.9
-	github.com/sirupsen/logrus v1.9.3
+	github.com/sirupsen/logrus v1.9.4
 )
 
-require golang.org/x/sys v0.0.0-20220715151400-c0bba94af5f8 // indirect
+require golang.org/x/sys v0.40.0 // indirect
