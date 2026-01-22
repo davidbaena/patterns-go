@@ -1,11 +1,16 @@
 /.idea/.gitignore
 /.idea/modules.xml
-/.idea/patterns-go.iml
+/.idea/playground-go.iml
 /.idea/vcs.xml
 /config.yml
 /fixes-goviz.txt
 /changed_files.txt
-go-viz/*
 
 *.csv
 /mixes/bookstore/prompts/out/
+/go-viz/emerge-file_result_dependency_graph.graphml
+/go-viz/emerge-file_result_dependency_graph-data.json
+/go-viz/emerge-filesystem_graph.graphml
+/go-viz/emerge-filesystem_graph-data.json
+/go-viz/emerge-statistics-and-metrics.json
+/go-viz/emerge-statistics-metrics.txt

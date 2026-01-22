@@ -55,15 +55,15 @@ def plot_nodes_changed(changed_files):
 
 if __name__ == '__main__':
     pr_url = sys.argv[1]
-    #    pr_url = 'https://github.com/davidbaena/patterns-go/pull/1'
-    repo = 'davidbaena/patterns-go'
+    #    pr_url = 'https://github.com/davidbaena/playground-go/pull/1'
+    repo = 'davidbaena/playground-go'
     print("PR URL: ", pr_url)
 
     changed_files = get_pr_diff(pr_url, repo)
     print("Fetch changed files Done!")
 
     # changed_files = read_changed_file(absolute_file_path)
-    changed_files = ['patterns-go/' + file for file in changed_files]
+    changed_files = ['playground-go/' + file for file in changed_files]
 
     json_file_path = './go-viz/emerge-statistics-and-metrics.json'
     metrics_data = read_json_file(json_file_path)
