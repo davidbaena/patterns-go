@@ -1,49 +1,66 @@
-# Go Design Patterns and Concurrency
+# Go Playground: Architectures, Design Patterns & Language Features
 
-This repository is dedicated to demonstrating the use of design patterns and concurrency in Go.
+A hands-on repository demonstrating software architectures, design patterns, and Go language features through practical examples.
 
-## Design Patterns
+## Repository Structure
 
-Design patterns are typical solutions to common problems in software design. Each pattern is like a blueprint that you
-can customize to solve a particular design problem in your code. They are about reusable designs and interactions of
-objects.
+### Design Patterns
 
-### Types of Design Patterns
+#### Creational Patterns
+- **Singleton** - Single database instance pattern
+- **Prototype** - Object cloning with three implementations:
+  - Shapes (circle, rectangle)
+  - File system (files and folders)
+  - Characters
+- **Abstract Factory** - Sports factory (Nike/Adidas products)
 
-The design patterns can be classified into three categories:
+#### Structural Patterns
+- **Decorator** - Data source with compression and encryption layers
 
-1. **Creational Patterns**: These design patterns provide a way to create objects while hiding the creation logic,
-   rather than instantiating objects directly using new operator. This gives program more flexibility in deciding which
-   objects need to be created for a given use case.
+#### Behavioral Patterns
+- **Command** - Remote control pattern
+- **Observer** - Football match notification system
+- **State** - Vending machine state management
+- **Strategy** - Cache eviction algorithms (FIFO, LRU, LFU)
 
-2. **Structural Patterns**: These design patterns concern class and object composition. They help ensure that when one
-   part of a system changes, the entire structure of the system doesn't need to do the same. They also help in recasting
-   parts of the system which don't fit a particular purpose into those that do.
+#### Mixed Pattern Examples
+- **Drone Fleet** - Registry pattern with command for different drone types
+- **Home Control System** - State pattern for smart home modes
 
-3. **Behavioral Patterns**: These design patterns are specifically concerned with communication between objects.
+### Architectures
 
-## Concurrency in Go
+#### Event-Driven Architecture (EDA)
+- **Cheesy Events** - Order processing system with event bus
+  - Order management
+  - Kitchen processing
+  - Delivery tracking
+  - Event-driven communication between services
 
-Concurrency is a big part of Go. It's supported at the language level, which means it's easier to understand and use
-correctly than in languages where it's offered through libraries.
+### Language Features
 
-In Go, you can use goroutines to run functions concurrently. Channels then provide a way for these functions to
-communicate and synchronize. This model of concurrency allows you to write systems that efficiently use all available
-CPU cores and handle many tasks at the same time.
+#### Concurrency
+- **Buffered Channels** - Locker room simulation
+- **Worker Pool** - HTTP server with worker pool pattern
 
-## Code Visualization and Metrics
+## Code Visualization
 
-This project uses the [emerge](https://github.com/glato/emerge) library to visualize code as a graph and add various metrics. The `emerge` library helps in analyzing the codebase and generating visual representations and metrics to better understand the structure and dependencies within the code.
+This project uses [emerge](https://github.com/glato/emerge) to visualize code structure and analyze dependencies.
 
-To run the analysis and generate the visualizations, use the following command:
+### Generate Visualization
+
+```shell
+./viz.sh
+```
+
+Or directly:
 ```shell
 emerge -c config.yml
 ```
-![Go Patterns Shape](img/go_patterns_shape.png)
 
-## Conclusion
+### Dependency Graph
 
-This repository aims to provide clear examples and explanations of design patterns and concurrency in Go. It's a great
-resource for anyone looking to deepen their understanding of Go and software design in general.
+![Code Structure Graph](img/go_patterns_shape.png)
 
-###
+**[View Interactive Visualization](https://htmlpreview.github.io/?https://github.com/davidbaena/playground-go/blob/main/go-viz/html/emerge.html)**
+
+The graph visualizes the codebase structure and module dependencies. The interactive version allows you to explore nodes, filter by metrics, and analyze the relationships between different components.
